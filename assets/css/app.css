@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400&display=swap');
+
+:root {
+    --profile-border: #6d6d6d;
+    --transparent-field: rgba(0, 0, 0, 0.4);
+    --spotify-color: rgba(30, 215, 96, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    background-attachment: fixed;
+    background-image: static_path("/images/background.jpg");
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: 'Urbanist', sans-serif;
+}
+
+main {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 1280px) {
+    main {
+        width: 80%;
+    }
+  }
+  
+
+.navbar-holder {
+    top: 0px;
+    /* top: -80px; */
+    position: fixed;
+    width: 100%;
+    padding: 20px 0 20px 0;
+    transition: 0.3s;
+}
+
+.navbar-holder:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navigation {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    text-transform: uppercase;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+.nav-element {
+    position: relative;
+}
+
+.nav-element::after {
+    content: "";
+    background-color: white;
+    width: 0px;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    transition: .3s;
+}
+
+.nav-element:hover::after {
+    width: 100%;
+}
+
+.main-user-banner {
+    display: flex;
+    margin-top: 100px;
+    gap: 10px
+}
+
+.section-block {
+    background-color: var(--transparent-field)
+}
+
+.connections {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    padding: 0 20px 0 20px;
+    height: 75px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.connections > ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.connections > ul > li {
+    display: inline;
+}
+
+.quick-content {
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 60px 20px 60px;
+}
+
+.quick-content > h1 {
+    margin-top: 15px;
+    font-size: 3em;
+    /* background-color: red; */
+    flex-grow: 1;
+}
+
+.quick-content > p {
+    /* background-color: green; */
+    font-size: 2em;
+    flex-grow: 1;
+    /* margin-right: 60px;
+    margin-left: 60px; */
+    align-self: center;
+    line-height: 1.4em;
+}
+
+.profile-big {
+    /* The image is already 1:1 */
+    width: 300px;
+    display: block;
+    /* border-color: var(--profile-border); */
+    /* border-width: 20px; */
+    /* border-style: solid; */
+}
+
+.spotify-information {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.song-text {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    gap: 10px;
+}
+
+.song-title {
+    flex-grow: 1;
+    background-color: var(--spotify-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+}
+
+#song-title {
+    font-weight: 400;
+    padding-bottom: 5px
+}
+
+.song-information {
+    flex-grow: 3;
+    background-color: var(--transparent-field);
+    font-size: 2em;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 30px;
+}
+
+.song-information > p {
+    /* font-weight: 100; */
+}
+
+.song-thumbnail {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 300px;
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+    background-color: var(--transparent-field);
+}
+
+.song-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.song-progress > span {
+    color: lightgray;
+    font-size: 0.5em;
+}
+
+.song-progress-bar {
+    width: 100%;
+    background: linear-gradient(90deg, var(--spotify-color) 0%, var(--spotify-color) 50%, lightgray 50%);
+    height: 3px;
+}
+
+.song-thumbnail > img {
+    width: 300px;
+    min-height: 300px;
+}
