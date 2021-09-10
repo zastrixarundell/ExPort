@@ -3,7 +3,7 @@
 :root {
     --profile-border: #6d6d6d;
     --transparent-field: rgba(0, 0, 0, 0.4);
-    --spotify-color: rgba(30, 215, 96, 0.4);
+    --highlight-color: rgba(30, 215, 96, 0.4);
     --scroll-wheel: rgba(133, 232, 168, 0.3);
 }
 
@@ -129,7 +129,7 @@ main {
 }
 
 .connection-button:hover {
-    background-color: var(--spotify-color);
+    background-color: var(--highlight-color);
 }
 
 .connections > ul {
@@ -200,7 +200,7 @@ main {
 
 .song-title {
     flex-grow: 1;
-    background-color: var(--spotify-color);
+    background-color: var(--highlight-color);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -249,7 +249,7 @@ main {
 
 .song-progress-bar {
     width: 100%;
-    background: linear-gradient(90deg, var(--spotify-color) 0%, var(--spotify-color) 50%, lightgray 50%);
+    background: linear-gradient(90deg, var(--highlight-color) 0%, var(--highlight-color) 50%, lightgray 50%);
     height: 3px;
 }
 
