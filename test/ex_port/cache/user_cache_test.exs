@@ -1,4 +1,4 @@
-defmodule ExPort.UserCacheTest do
+defmodule ExPort.Cache.UserCacheTest do
   use ExPort.DataCase
 
   alias ExPort.Cache.UserCache
@@ -6,28 +6,41 @@ defmodule ExPort.UserCacheTest do
 
   import ExPort.AccountsFixtures
 
-  describe "write_user/1" do
-    test "safely writes to ETS cache" do
-      user = user_fixture()
-
-      assert UserCache.write_user(user) == true
-      assert UserCache.read_user() == user
-    end
-
-    test "does not write nil into ETS" do
-      assert UserCache.write_user(nil) == false
-    end
+  setup do
+    UserCache.update_user(nil)
+    :ok
   end
 
-  describe "read_user!/0" do
-    test "gives nil safely if empty" do
+  describe "read_user" do
+    test "returns nil safely if user is not present" do
       assert UserCache.read_user() == nil
     end
 
-    test "gives user information safely" do
+    test "returns user when saved" do
       user = user_fixture()
+      UserCache.update_user(user)
+      assert UserCache.read_user() == user
+    end
+  end
+
+  describe "update_user" do
+    test "does not raise error if user does not exist already" do
+      user = user_fixture()
+      UserCache.update_user(user)
+
+      assert UserCache.read_user() == user
+    end
+
+    test "succesfully updates existing user" do
+      user = user_fixture()
+      UserCache.update_user(user)
+
+      user = %User{user | spotify_token: "new token"}
+
+      UserCache.update_user(user)
 
       assert UserCache.read_user() == user
     end
   end
+
 end

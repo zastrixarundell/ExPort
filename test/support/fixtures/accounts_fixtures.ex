@@ -7,6 +7,7 @@ defmodule ExPort.AccountsFixtures do
   @doc """
   Generate a user.
   """
+  @spec user_fixture(%{}) :: ExPort.Accounts.User.t(0)
   def user_fixture(attrs \\ %{}) do
     {:ok, user} =
       attrs

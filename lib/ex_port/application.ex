@@ -15,9 +15,10 @@ defmodule ExPort.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ExPort.PubSub},
       # Start the Endpoint (http/https)
-      ExPortWeb.Endpoint
+      ExPortWeb.Endpoint,
       # Start a worker by calling: ExPort.Worker.start_link(arg)
       # {ExPort.Worker, arg}
+      ExPort.Cache.UserCache
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
