@@ -51,7 +51,8 @@ defmodule ExPort.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:timex, "~> 3.0"},
       {:mox, "~> 1.0.0"},
-      {:faker, "~> 0.16.0", only: [:test, :dev]}
+      {:faker, "~> 0.16.0", only: [:test, :dev]},
+      {:httpoison, "~> 1.8"}
     ]
   end
 
