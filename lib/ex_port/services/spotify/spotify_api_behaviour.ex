@@ -3,7 +3,7 @@ defmodule ExPort.Services.SpotifyApiBehaviour do
   Behaviour module for a spotify API web client.
   """
 
-  @callback reauth_token(String.t()) :: String.t()
+  @callback reauth_token(String.t()) :: {:ok, %{}} | {:error, integer()}
 
   @callback user_info(String.t()) :: {:ok, %{}} | {:error, integer()}
 

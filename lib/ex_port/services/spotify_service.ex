@@ -4,6 +4,7 @@ defmodule ExPort.Services.SpotifyService do
   """
 
   alias ExPort.Accounts.User
+  alias ExPort.Accounts
 
   @spotify_service Application.get_env(:ex_port, :spotify)[:api_service]
 
@@ -12,12 +13,22 @@ defmodule ExPort.Services.SpotifyService do
 
   ## Examples
 
-      iex> reauth_token(%User{})
-      String.t()
+      iex> reauth_user(%User{})
+      {:ok, %User{}}
   """
-  @spec reauth_token(user :: User.t()) :: String.t()
-  def reauth_token(user) do
-    @spotify_service.reauth_token(user.spotify_token)
+  @spec reauth_user(user :: User.t()) :: {:ok, User.t()} | {:error, integer()}
+  def reauth_user(user) do
+    case @spotify_service.reauth_token(user.spotify_token) do
+      {:ok, data} ->
+        {:ok, new_user} =
+          user
+          |> Accounts.update_user(data)
+
+        {:ok, new_user}
+
+      data ->
+        data
+    end
   end
 
   @doc """

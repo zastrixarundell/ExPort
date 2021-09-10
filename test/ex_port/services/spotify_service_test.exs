@@ -9,9 +9,10 @@ defmodule ExPort.Service.SpotifyServiceTest do
   describe "reauth_token/1" do
     test "will generate a new token" do
       user = user_fixture()
-      SpotifyService.reauth_token(user)
 
-      assert Accounts.first_user!().spotify_token == "MY_NEW_TOKEN"
+      assert {:ok, user} = SpotifyService.reauth_user(user)
+
+      assert user.spotify_token == "MY_NEW_TOKEN"
     end
   end
 

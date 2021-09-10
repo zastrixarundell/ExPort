@@ -7,14 +7,17 @@ defmodule ExPort.AccountsFixtures do
   @doc """
   Generate a user.
   """
-  @spec user_fixture(%{}) :: ExPort.Accounts.User.t(0)
+  @spec user_fixture(%{}) :: ExPort.Accounts.User.t()
   def user_fixture(attrs \\ %{}) do
     {:ok, user} =
       attrs
       |> Enum.into(%{
-        discord_token: "some discord_token",
-        github_token: "some github_token",
-        spotify_token: "some spotify_token"
+        spotify_token:         Faker.String.base64(50),
+        spotify_refresh_token: Faker.String.base64(50),
+        discord_token:         Faker.String.base64(50),
+        discord_refresh_token: Faker.String.base64(50),
+        github_token:          Faker.String.base64(50),
+        github_refresh_token:  Faker.String.base64(50)
       })
       |> ExPort.Accounts.create_user()
 
