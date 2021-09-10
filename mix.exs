@@ -20,7 +20,7 @@ defmodule ExPort.MixProject do
   def application do
     [
       mod: {ExPort.Application, []},
-      extra_applications: [:logger, :runtime_tools, :figaro_elixir]
+      extra_applications: [:logger, :runtime_tools]
     ]
   end
 
@@ -49,8 +49,7 @@ defmodule ExPort.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:timex, "~> 3.0"},
-      {:figaro_elixir, "~> 1.0.0", only: [:dev, :test]}
+      {:timex, "~> 3.0"}
     ]
   end
 
@@ -66,7 +65,8 @@ defmodule ExPort.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.deploy": ["esbuild default --minify --loader:.jpg=file", "phx.digest"]
+      "assets.deploy": ["esbuild default --minify --loader:.jpg=file", "phx.digest"],
+      "deps.update": ["deps.clean --unused --unlock", "deps.get"]
     ]
   end
 end
