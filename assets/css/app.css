@@ -14,9 +14,13 @@
     color: white;
 }
 
+html {
+    scrollbar-color: var(--spotify-color) transparent;
+}
+
 body {
     background-attachment: fixed;
-    background-image: static_path("/images/background.jpg");
+    background-image: url("../../priv/static/images/background.jpg");
     background-size: cover;
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.8);
@@ -42,11 +46,15 @@ main {
     position: fixed;
     width: 100%;
     padding: 20px 0 20px 0;
-    transition: 0.3s;
+    transition: 0.5s;
 }
 
 .navbar-holder:hover {
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.navbar-holder-dark {
+    background-color: black !important; 
 }
 
 .navigation {
@@ -90,7 +98,7 @@ main {
 .main-user-banner {
     display: flex;
     margin-top: 100px;
-    gap: 10px
+    gap: 10px;
 }
 
 .section-block {
@@ -136,6 +144,7 @@ main {
     font-size: 3em;
     /* background-color: red; */
     flex-grow: 1;
+    text-transform: uppercase;
 }
 
 .quick-content > p {
@@ -198,10 +207,6 @@ main {
     padding-left: 30px;
     padding-right: 30px;
     gap: 30px;
-}
-
-.song-information > p {
-    /* font-weight: 100; */
 }
 
 .song-thumbnail {

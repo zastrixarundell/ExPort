@@ -1,41 +1,35 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
+<div class="main-user-banner">
+  <img src="/images/profile.jpg" alt="Zastrix" class="profile profile-big">
+  <section class="quick-content section-block">
+    <h1>Zastrix</h1>
+    <p><%= years_old() %> year old developer with a knack for FOSS, RPGs, books and metal.</p>
+  </section>
+</div>
+<section class="connections section-block">
+  <ul>
+    <li>Discord</li>
+    <li>Steam</li>
+    <li>Github</li>
+    <li>Email</li>
+  </ul>
 </section>
-
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">v1.6 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://web.libera.chat/#elixir">#elixir on Libera Chat (IRC)</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/elixir">Elixir on Discord</a>
-      </li>
-    </ul>
-  </article>
+<section class="spotify-information">
+  <div class="song-text">
+    <div class="song-title">
+      <h1 id="song-title">Enemy</h1>
+    </div>
+    <div class="song-information">
+      <p id="song-artist">by A Lethal Smile</p>
+      <p id="song-album">on Enemy</p>
+      <div class="song-progress">
+        <span>2:30</span>
+        <div class="song-progress-bar"></div>
+        <span>5:00</span>
+      </div>
+    </div>
+  </div>
+  <div class="song-thumbnail">
+    <img src={Routes.static_path(@conn, "/images/album.jpg" )} alt="A Lethal Smile">
+  </div>
 </section>
+<br><br><br><br><br><br><br><br><br><br>
