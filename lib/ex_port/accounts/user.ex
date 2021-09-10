@@ -14,6 +14,5 @@ defmodule ExPort.Accounts.User do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:spotify_token, :discord_token, :github_token])
-    |> validate_required([:spotify_token, :discord_token, :github_token])
   end
 end
