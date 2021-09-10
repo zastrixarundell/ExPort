@@ -24,14 +24,31 @@ defmodule ExPort.Services.SpotifyApi do
 
     case HTTPoison.post(@token_link, "", headers, params: params) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
-        {:ok, Jason.decode!(body, keys: :atoms)}
+        {:ok, Jason.decode!(body)}
 
       {:ok, %HTTPoison.Response{status_code: code}} ->
         {:error, code}
     end
   end
 
-  def user_info(_token) do
-    {:ok, %{}}
+  def currently_playing(token) do
+    request_currently_playing(token)
+  end
+
+  @currently_playing "https://api.spotify.com/v1/me/player/currently-playing"
+
+  defp request_currently_playing(token) do
+    headers = [
+      {"Authorization", "Bearer #{token}"},
+      {"Content-Type", "application/x-www-form-urlencoded"}
+    ]
+
+    case HTTPoison.get(@currently_playing, headers) do
+      {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
+        {:ok, Jason.decode!(body)}
+
+      {:ok, %HTTPoison.Response{status_code: code}} ->
+        {:error, code}
+    end
   end
 end

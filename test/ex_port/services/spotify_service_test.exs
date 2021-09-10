@@ -10,16 +10,23 @@ defmodule ExPort.Service.SpotifyServiceTest do
     test "will generate a new token" do
       user = user_fixture()
 
-      assert {:ok, user} = SpotifyService.reauth_user(user)
+      assert {:ok, new_user} = SpotifyService.reauth_user(user)
 
-      assert user.spotify_token == "MY_NEW_TOKEN"
+      assert new_user.spotify_token != user.spotify_token
+      assert new_user.spotify_token != nil
     end
   end
 
   describe "user_info/1" do
     test "can get user information" do
       user = user_fixture()
-      assert {:ok, %{}} = SpotifyService.user_info(user)
+      assert {:ok, %{}} = SpotifyService.currently_playing(user)
+    end
+
+    test "can extract song information" do
+      user = user_fixture()
+      assert {:ok, data} = SpotifyService.currently_playing(user)
+      assert data["item"]["album"]["name"] == "Demon Hunter"
     end
   end
 end

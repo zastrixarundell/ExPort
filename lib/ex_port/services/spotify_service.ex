@@ -18,11 +18,11 @@ defmodule ExPort.Services.SpotifyService do
   """
   @spec reauth_user(user :: User.t()) :: {:ok, User.t()} | {:error, integer()}
   def reauth_user(user) do
-    case @spotify_service.reauth_token(user.spotify_token) do
+    case @spotify_service.reauth_token(user.spotify_refresh_token) do
       {:ok, data} ->
         {:ok, new_user} =
           user
-          |> Accounts.update_user(data)
+          |> Accounts.update_user(%{spotify_token: data["access_token"]})
 
         {:ok, new_user}
 
@@ -37,14 +37,14 @@ defmodule ExPort.Services.SpotifyService do
 
   ## Examples
 
-      iex> user_info(%User{})
+      iex> currently_playing(%User{})
       {:ok, %{}}
 
-      iex> user_info(%{})
+      iex> currently_playing(%{})
       {:error, 404}
   """
-  @spec user_info(user :: User.t()) :: {:ok, %{}} | {:error, integer()}
-  def user_info(user) do
-    @spotify_service.user_info(user.spotify_token)
+  @spec currently_playing(user :: User.t()) :: {:ok, %{}} | {:error, integer()}
+  def currently_playing(user) do
+    @spotify_service.currently_playing(user.spotify_token)
   end
 end

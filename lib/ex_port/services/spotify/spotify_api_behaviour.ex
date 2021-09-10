@@ -5,6 +5,6 @@ defmodule ExPort.Services.SpotifyApiBehaviour do
 
   @callback reauth_token(String.t()) :: {:ok, %{}} | {:error, integer()}
 
-  @callback user_info(String.t()) :: {:ok, %{}} | {:error, integer()}
+  @callback currently_playing(String.t()) :: {:ok, %{}} | {:error, integer()}
 
 end
