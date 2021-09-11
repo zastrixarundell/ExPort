@@ -54,4 +54,22 @@ defmodule ExPort.Services.SpotifyService do
   def currently_playing(user) do
     @spotify_service.currently_playing(user.spotify_token)
   end
+
+  @doc """
+  Subscribe to the Phoenix.PubSub server for when the
+  user song state changes.
+  """
+  @spec subscribe_info :: none()
+  def subscribe_info do
+    Phoenix.PubSub.subscribe(ExPort.PubSub, "spotify_info")
+  end
+
+  @doc """
+  Broadcast song info about a user.
+  """
+  @spec broadcast_info(%{} | nil) :: none()
+  def broadcast_info(song) do
+    Phoenix.PubSub.broadcast(ExPort.PubSub, "spotify_info", {:song, song})
+  end
+
 end

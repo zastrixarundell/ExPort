@@ -47,4 +47,15 @@ defmodule ExPort.Service.SpotifyServiceTest do
       assert data["item"]["album"]["name"] == "Demon Hunter"
     end
   end
+
+  describe "subscription/1" do
+    test "subscribes to the Phoenix.PubSub module" do
+      SpotifyService.subscribe_info()
+
+      song_map = %{"message" => "test"}
+
+      SpotifyService.broadcast_info(song_map)
+      assert_received {:song, ^song_map}
+    end
+  end
 end
