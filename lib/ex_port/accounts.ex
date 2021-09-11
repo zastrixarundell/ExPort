@@ -7,7 +7,6 @@ defmodule ExPort.Accounts do
   alias ExPort.Repo
 
   alias ExPort.Accounts.User
-  alias ExPort.Cache.UserCache
 
   @doc """
   Returns the list of users.
@@ -75,7 +74,6 @@ defmodule ExPort.Accounts do
     user
     |> User.changeset(attrs)
     |> Repo.update()
-    |> UserCache.update_user()
   end
 
   @doc """
@@ -92,7 +90,6 @@ defmodule ExPort.Accounts do
   """
   @spec delete_user(user :: User.t()) :: {:ok, User.t()} | {:error, Ecto.Changeset.t()} | {:error, :unknown}
   def delete_user(%User{} = user) do
-    UserCache.update_user(nil)
     Repo.delete(user)
   end
 

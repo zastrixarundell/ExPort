@@ -3,7 +3,6 @@ defmodule ExPort.Cache.UserCacheTest do
 
   alias ExPort.Cache.UserCache
   alias ExPort.Accounts.User
-  alias ExPort.Accounts
 
   import ExPort.AccountsFixtures
 
@@ -86,14 +85,4 @@ defmodule ExPort.Cache.UserCacheTest do
       assert song["item"]["name"] =~ "My Throat"
     end
   end
-
-  test "has user automatically updated" do
-    user = user_fixture()
-    UserCache.update_user(user)
-
-    {:ok, user} = Accounts.update_user(user, %{spotify_token: "NEW_TOKEN"})
-
-    assert UserCache.read_user() == user
-  end
-
 end

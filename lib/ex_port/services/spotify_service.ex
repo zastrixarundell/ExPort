@@ -23,6 +23,7 @@ defmodule ExPort.Services.SpotifyService do
         {:ok, new_user} =
           user
           |> Accounts.update_user(%{spotify_token: data["access_token"]})
+          |> ExPort.Cache.UserCache.update_user()
         {:ok, new_user}
 
       data ->
