@@ -5,6 +5,8 @@ defmodule ExPort.Services.SpotifyApi do
   @api_secret Application.get_env(:ex_port, :spotify)[:api_secret]
   @authorization   Base.url_encode64("#{@api_client}:#{@api_secret}")
 
+  require Logger
+
   def reauth_token(token) do
     request_reauth(token)
   end
@@ -26,7 +28,8 @@ defmodule ExPort.Services.SpotifyApi do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, Jason.decode!(body)}
 
-      {:ok, %HTTPoison.Response{status_code: code}} ->
+      {:ok, %HTTPoison.Response{status_code: code, body: body}} ->
+        Logger.warn("Spotify reauth failed with: #{body}")
         {:error, code}
     end
   end
@@ -47,7 +50,8 @@ defmodule ExPort.Services.SpotifyApi do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, Jason.decode!(body)}
 
-      {:ok, %HTTPoison.Response{status_code: code}} ->
+      {:ok, %HTTPoison.Response{status_code: code, body: body}} ->
+        Logger.warn("Spotify song info failed with: #{body}")
         {:error, code}
     end
   end

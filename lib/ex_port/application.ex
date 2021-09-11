@@ -18,7 +18,8 @@ defmodule ExPort.Application do
       ExPortWeb.Endpoint,
       # Start a worker by calling: ExPort.Worker.start_link(arg)
       # {ExPort.Worker, arg}
-      ExPort.Cache.UserCache
+      ExPort.Cache.UserCache,
+      ExPort.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

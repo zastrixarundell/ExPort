@@ -52,6 +52,11 @@ config :ex_port, :spotify,
   api_client: System.get_env("SPOTIFY_API_CLIENT"),
   api_secret: System.get_env("SPOTIFY_API_SECRET")
 
+config :ex_port, ExPort.Scheduler,
+  jobs: [
+    {"* * * * *", fn -> ExPort.Services.SpotifyService.reauth_user(ExPort.Accounts.first_user!()) end}
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

@@ -23,11 +23,19 @@ defmodule ExPort.Cache.UserCache do
   @doc """
   Update the user. This is used to both save and read the User.
   """
-  @spec update_user(User.t(), pid() | nil) :: User.t()
-  def update_user(user, pid \\ nil) do
+  @spec update_user(User.t() | {:ok, User.t()} | any(), pid() | nil) :: User.t() | any()
+  def update_user(user, pid \\ nil)
+
+  def update_user(%User{} = user, pid) do
     GenServer.cast(pid || __MODULE__, {:update_user, user})
     user
   end
+
+  def update_user({:ok, %User{} = user}, pid) do
+    {:ok, update_user(user, pid)}
+  end
+
+  def update_user(pass, _pid), do: pass
 
   @doc """
   Read the data for the user. Can return nil.

@@ -23,7 +23,6 @@ defmodule ExPort.Services.SpotifyService do
         {:ok, new_user} =
           user
           |> Accounts.update_user(%{spotify_token: data["access_token"]})
-
         {:ok, new_user}
 
       data ->

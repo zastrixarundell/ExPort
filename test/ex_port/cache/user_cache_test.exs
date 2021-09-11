@@ -3,6 +3,7 @@ defmodule ExPort.Cache.UserCacheTest do
 
   alias ExPort.Cache.UserCache
   alias ExPort.Accounts.User
+  alias ExPort.Accounts
 
   import ExPort.AccountsFixtures
 
@@ -22,7 +23,8 @@ defmodule ExPort.Cache.UserCacheTest do
 
   describe "read_user" do
     test "returns nil safely if user is not present" do
-      assert UserCache.read_user() == nil
+      {:ok, pid} = start_supervised({UserCache, [standalone: false]})
+      assert UserCache.read_user(pid) == nil
     end
 
     test "returns user when saved" do
@@ -83,6 +85,15 @@ defmodule ExPort.Cache.UserCacheTest do
       song = UserCache.read_song()
       assert song["item"]["name"] =~ "My Throat"
     end
+  end
+
+  test "has user automatically updated" do
+    user = user_fixture()
+    UserCache.update_user(user)
+
+    {:ok, user} = Accounts.update_user(user, %{spotify_token: "NEW_TOKEN"})
+
+    assert UserCache.read_user() == user
   end
 
 end

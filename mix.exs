@@ -52,7 +52,8 @@ defmodule ExPort.MixProject do
       {:timex, "~> 3.0"},
       {:mox, "~> 1.0.0"},
       {:faker, "~> 0.16.0", only: [:test, :dev]},
-      {:httpoison, "~> 1.8"}
+      {:httpoison, "~> 1.8"},
+      {:quantum, "~> 3.0"}
     ]
   end
 

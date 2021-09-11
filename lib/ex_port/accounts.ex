@@ -56,7 +56,6 @@ defmodule ExPort.Accounts do
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()
-    |> UserCache.update_user()
   end
 
   @doc """
