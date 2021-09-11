@@ -84,5 +84,16 @@ defmodule ExPort.Cache.UserCacheTest do
       song = UserCache.read_song()
       assert song["item"]["name"] =~ "My Throat"
     end
+
+    test "broadcasts PubSub events" do
+      ExPort.Services.SpotifyService.subscribe_info()
+
+      user = user_fixture()
+      UserCache.update_user(user)
+      Process.send(UserCache, :spotify_sync, [:nosuspend])
+      song = UserCache.read_song()
+
+      assert_received {:song, ^song}
+    end
   end
 end

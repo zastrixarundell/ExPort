@@ -78,6 +78,8 @@ defmodule ExPort.Cache.UserCache do
           nil
         end
 
+    SpotifyService.broadcast_info(song)
+
     schedule_sync()
     {:noreply, {user, song}}
   end
