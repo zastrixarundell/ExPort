@@ -2,7 +2,6 @@ defmodule ExPort.Service.SpotifyServiceTest do
   use ExPort.DataCase, async: true
 
   alias ExPort.Services.SpotifyService
-  alias ExPort.Accounts
 
   import ExPort.AccountsFixtures
   import Mox

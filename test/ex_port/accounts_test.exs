@@ -8,8 +8,6 @@ defmodule ExPort.AccountsTest do
 
     import ExPort.AccountsFixtures
 
-    @invalid_attrs %{discord_token: nil, github_token: nil, spotify_token: nil}
-
     test "list_users/0 returns all users" do
       user = user_fixture()
       assert Accounts.list_users() == [user]
