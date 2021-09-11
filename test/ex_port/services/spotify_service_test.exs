@@ -29,6 +29,10 @@ defmodule ExPort.Service.SpotifyServiceTest do
 
       assert {:error, 403} = SpotifyService.reauth_user(user)
     end
+
+    test "will not raise if the user is nil" do
+      assert {:error, :nil_user} = SpotifyService.reauth_user(nil)
+    end
   end
 
   describe "user_info/1" do

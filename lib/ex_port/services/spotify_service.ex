@@ -15,8 +15,13 @@ defmodule ExPort.Services.SpotifyService do
 
       iex> reauth_user(%User{})
       {:ok, %User{}}
+
+      iex> reauth_user(nil)
+      {:error, :nil_user}
   """
-  @spec reauth_user(user :: User.t()) :: {:ok, User.t()} | {:error, integer()}
+  @spec reauth_user(user :: User.t() | nil) :: {:ok, User.t()} | {:error, integer() | :nil_user}
+  def reauth_user(nil), do: {:error, :nil_user}
+
   def reauth_user(user) do
     case @spotify_service.reauth_token(user.spotify_refresh_token) do
       {:ok, data} ->
