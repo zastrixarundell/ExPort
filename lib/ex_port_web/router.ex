@@ -17,7 +17,9 @@ defmodule ExPortWeb.Router do
   scope "/", ExPortWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # get "/", PageController, :index
+
+    live "/", LandingLive
   end
 
   # Other scopes may use custom stacks.
