@@ -71,6 +71,7 @@ defmodule ExPort.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec update_user(User.t(), %{}) :: User.t()
   def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)

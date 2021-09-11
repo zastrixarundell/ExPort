@@ -7,9 +7,8 @@ defmodule ExPort.AccountsFixtures do
   @doc """
   Generate a user.
   """
-  @spec user_fixture(%{}) :: ExPort.Accounts.User.t()
   def user_fixture(attrs \\ %{}) do
-    {:ok, user} =
+    {:ok, %ExPort.Accounts.User{} = user} =
       attrs
       |> Enum.into(%{
         spotify_token:         Faker.String.base64(50),

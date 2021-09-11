@@ -108,8 +108,6 @@ defmodule ExPort.SpotifyApiStub do
      }}
   end
 
-  @spec reauth_token(any) ::
-          {:ok, %{}}
   def reauth_token(_) do
     {:ok,
      %{

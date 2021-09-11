@@ -1,10 +1,16 @@
 defmodule ExPort.Service.SpotifyServiceTest do
-  use ExPort.DataCase
+  use ExPort.DataCase, async: true
 
   alias ExPort.Services.SpotifyService
   alias ExPort.Accounts
 
   import ExPort.AccountsFixtures
+  import Mox
+
+  setup do
+    Mox.stub_with(ExPort.SpotifyApiMock, ExPort.SpotifyApiStub)
+    :ok
+  end
 
   describe "reauth_token/1" do
     test "will generate a new token" do
@@ -14,6 +20,15 @@ defmodule ExPort.Service.SpotifyServiceTest do
 
       assert new_user.spotify_token != user.spotify_token
       assert new_user.spotify_token != nil
+    end
+
+    test "will give a known tuple for an error" do
+      ExPort.SpotifyApiMock
+      |> expect(:reauth_token, 1, fn _ -> {:error, 403} end)
+
+      user = user_fixture()
+
+      assert {:error, 403} = SpotifyService.reauth_user(user)
     end
   end
 
