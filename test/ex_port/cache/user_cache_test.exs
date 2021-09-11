@@ -82,7 +82,7 @@ defmodule ExPort.Cache.UserCacheTest do
       Process.send(pid, :spotify_sync, [:nosuspend])
 
       song = UserCache.read_song()
-      assert song["item"]["name"] =~ "My Throat"
+      assert song.song_name =~ "My Throat"
     end
 
     test "broadcasts PubSub events" do

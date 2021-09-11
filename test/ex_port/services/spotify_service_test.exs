@@ -44,7 +44,7 @@ defmodule ExPort.Service.SpotifyServiceTest do
     test "can extract song information" do
       user = user_fixture()
       assert {:ok, data} = SpotifyService.currently_playing(user)
-      assert data["item"]["album"]["name"] == "Demon Hunter"
+      assert data.artists == "Demon Hunter"
     end
   end
 
@@ -59,3 +59,4 @@ defmodule ExPort.Service.SpotifyServiceTest do
     end
   end
 end
+Enemy

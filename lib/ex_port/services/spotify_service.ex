@@ -53,6 +53,7 @@ defmodule ExPort.Services.SpotifyService do
 
   def currently_playing(user) do
     @spotify_service.currently_playing(user.spotify_token)
+    |> ExPort.Serializer.SpotifySongSerializer.serialize!()
   end
 
   @doc """

@@ -1,0 +1,45 @@
+<main>
+  <div class="main-user-banner">
+    <img src="/images/profile.jpg" alt="Zastrix" class="profile profile-big">
+    <section class="quick-content section-block">
+      <h1>Zastrix</h1>
+      <p>20 year old developer with a knack for FOSS, RPGs, books and metal.</p>
+    </section>
+  </div>
+  <section class="connections section-block">
+    <ul>
+      <a href="#discord" class="connection-button">
+        <li>Discord</li>
+      </a>
+      <a href="#steam" class="connection-button">
+        <li>Steam</li>
+      </a>
+      <a href="#github" class="connection-button">
+        <li>Github</li>
+      </a>
+      <a href="#email" class="connection-button">
+        <li>Email</li>
+      </a>
+    </ul>
+  </section>
+  <section class="spotify-information">
+    <div class="song-text">
+      <div class="song-title">
+        <h1 id="song-title"><%= @song.song_name %></h1>
+      </div>
+      <div class="song-information">
+        <p id="song-artist">by <%= @song.artists %></p>
+        <p id="song-album">on <%= @song.album_name %></p>
+        <div class="song-progress">
+          <span>2:30</span>
+          <div class="song-progress-bar"></div>
+          <span>5:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-thumbnail">
+      <img src={ @song.thumbnail } alt="Cover Art">
+    </div>
+  </section>
+  <br><br><br><br><br><br><br><br><br><br>
+</main>
