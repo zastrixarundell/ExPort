@@ -9,6 +9,6 @@ defmodule ExPortWeb.LandingLiveTest do
     conn = get(conn, @path)
     assert html_response(conn, 200) =~ "<h1>Zastrix</h1>"
 
-    {:ok, view, html} = live(conn)
+    {:ok, _view, _html} = live(conn)
   end
 end
