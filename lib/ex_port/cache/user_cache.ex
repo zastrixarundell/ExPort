@@ -1,6 +1,7 @@
 defmodule ExPort.Cache.UserCache do
   use GenServer
 
+  alias ExPort.Services.SpotifyService
   alias ExPort.{Accounts, Accounts.User}
 
   @moduledoc """
@@ -36,20 +37,50 @@ defmodule ExPort.Cache.UserCache do
     GenServer.call(pid || __MODULE__, :read_user)
   end
 
+  @spec read_song(pid() | nil) :: %{}
+  def read_song(pid \\ nil) do
+    GenServer.call(pid || __MODULE__, :read_song)
+  end
+
   # Server
 
   @impl true
-  def handle_call(:read_user, _, state) do
-    {:reply, state, state}
+  def handle_call(:read_song, _, {_, song} = state) do
+    {:reply, song, state}
+  end
+
+  @impl true
+  def handle_call(:read_user, _, {user, _} = state) do
+    {:reply, user, state}
   end
 
   @impl true
   def handle_cast({:update_user, user}, _) do
-    {:noreply, user}
+    {:noreply, {user, nil}}
+  end
+
+  @impl true
+  def handle_info(:spotify_sync, {user, _}) do
+    song =
+      case SpotifyService.currently_playing(user) do
+        {:ok, meta} ->
+          meta
+
+        _ ->
+          nil
+        end
+
+    schedule_sync()
+    {:noreply, {user, song}}
   end
 
   @impl true
   def init(_) do
-    {:ok, Accounts.first_user!()}
+    schedule_sync()
+    {:ok, {Accounts.first_user!(), nil}}
+  end
+
+  def schedule_sync(seconds \\ 2) do
+    Process.send_after(self(), :spotify_sync, seconds * 1000)
   end
 end

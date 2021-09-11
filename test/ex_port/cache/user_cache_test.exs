@@ -6,10 +6,19 @@ defmodule ExPort.Cache.UserCacheTest do
 
   import ExPort.AccountsFixtures
 
+  import Mox
+
   setup do
     UserCache.update_user(nil)
     :ok
   end
+
+  setup do
+    Mox.stub_with(ExPort.SpotifyApiMock, ExPort.SpotifyApiStub)
+    :ok
+  end
+
+  setup :set_mox_from_context
 
   describe "read_user" do
     test "returns nil safely if user is not present" do
@@ -40,6 +49,38 @@ defmodule ExPort.Cache.UserCacheTest do
       UserCache.update_user(user)
 
       assert UserCache.read_user() == user
+    end
+  end
+
+  describe "song_data" do
+    test "should have working info callbacks" do
+      pid = GenServer.whereis(ExPort.Cache.UserCache)
+      :erlang.trace(pid, true, [:receive])
+      Process.send(pid, :spotify_sync, [:noconnect])
+
+      assert_receive {:trace, ^pid, :receive, :spotify_sync}
+    end
+
+    test "can take information" do
+      user = user_fixture()
+      UserCache.update_user(user)
+
+      pid = GenServer.whereis(ExPort.Cache.UserCache)
+      :erlang.trace(pid, true, [:receive])
+      Process.send(pid, :spotify_sync, [:nosuspend])
+
+      assert %{} = UserCache.read_song()
+    end
+
+    test "reads information properly" do
+      user = user_fixture()
+      UserCache.update_user(user)
+
+      pid = GenServer.whereis(ExPort.Cache.UserCache)
+      :erlang.trace(pid, true, [:receive])
+      Process.send(pid, :spotify_sync, [:nosuspend])
+
+      song = UserCache.read_song()
     end
   end
 

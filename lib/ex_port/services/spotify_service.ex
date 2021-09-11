@@ -44,6 +44,8 @@ defmodule ExPort.Services.SpotifyService do
       {:error, 404}
   """
   @spec currently_playing(user :: User.t()) :: {:ok, %{}} | {:error, integer()}
+  def currently_playing(nil), do: {:error, 0}
+
   def currently_playing(user) do
     @spotify_service.currently_playing(user.spotify_token)
   end
