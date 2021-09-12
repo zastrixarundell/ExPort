@@ -1,5 +1,5 @@
 defmodule ExPort.Cache.UserCacheTest do
-  use ExPort.DataCase
+  use ExPort.DataCase, async: false
 
   alias ExPort.Cache.UserCache
   alias ExPort.Accounts.User
