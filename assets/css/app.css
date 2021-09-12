@@ -25,7 +25,7 @@ body {
     background-image: url("../../priv/static/images/background.jpg");
     background-size: cover;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.8);
     font-family: 'Urbanist', sans-serif;
 }
 
