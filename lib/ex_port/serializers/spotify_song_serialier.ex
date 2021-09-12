@@ -10,7 +10,7 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
   or else it will just pass through the argument.
   """
   @spec serialize!(any()) :: any()
-  def serialize!({:ok, %{"currently_playing_type" => "track"} = song}) do
+  def serialize!({:ok, %{"currently_playing_type" => "track", "is_playing" => true} = song}) do
     ms_progress = song["progress_ms"]
     song_duration = song["item"]["duration_ms"]
 
@@ -31,6 +31,8 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
 
     {:ok, data}
   end
+
+  def serialize!({:ok, _}), do: {:ok, nil}
 
   def serialize!(passthrough), do: passthrough
 end
