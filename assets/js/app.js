@@ -2,16 +2,6 @@
 // Remove this line if you add a your own CSS build pipeline (e.g postcss).
 import "../css/app.css"
 
-window.onscroll = function () {
-    let myNav = document.getElementById("navbar");
-    if (window.scrollY > 30) {
-        myNav.classList.add("navbar-holder-dark");
-    } 
-    else {
-        myNav.classList.remove("navbar-holder-dark");
-    }
-};
-
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
 // import "./user_socket.js"
