@@ -20,14 +20,30 @@ defmodule ExPortWeb.LandingLiveTest do
 
     Process.send(pid, :spotify_sync, [:nosuspend])
 
-    :ok
+    %{cache: pid}
   end
 
-  test "connected mount", %{conn: conn} do
-    conn = get(conn, @path)
-    assert html_response(conn, 200) =~ "<h1>Zastrix</h1>"
+  describe "connected and mounted" do
+    test "when user is not cached", %{conn: conn, cache: pid} do
+      ExPort.Cache.UserCache.update_user(nil)
+      Process.send(pid, :spotify_sync, [:nosuspend])
 
-    {:ok, _view, _html} = live(conn)
+      assert ExPort.Cache.UserCache.read_song(pid) == nil
+
+      conn = get(conn, @path)
+      assert html_response(conn, 200) =~ "<h1>Zastrix</h1>"
+
+      {:ok, _view, html} = live(conn)
+
+      refute html =~ "Demon Hunter"
+    end
+
+    test "when user is cached", %{conn: conn}  do
+      conn = get(conn, @path)
+      assert html_response(conn, 200) =~ "Demon Hunter"
+
+      {:ok, _view, _html} = live(conn)
+    end
   end
 
   test "handles Spotify PubSub broadcasts", %{conn: conn} do

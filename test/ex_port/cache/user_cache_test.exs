@@ -76,7 +76,9 @@ defmodule ExPort.Cache.UserCacheTest do
       song = UserCache.read_song(pid)
       assert song.song_name =~ "My Throat"
     end
+  end
 
+  describe "PubSub events" do
     test "broadcasts PubSub events", %{cache: pid} do
       ExPort.Services.SpotifyService.subscribe_info()
 
