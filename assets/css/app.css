@@ -97,6 +97,17 @@ main {
     width: 100%;
 }
 
+footer {
+    background-color: var(--transparent-field);
+    width: 100%;
+    height: 100px;
+    transition: 0.3s;
+}
+
+footer:hover {
+    background-color: black;
+}
+
 .main-user-banner {
     display: flex;
     margin-top: 100px;
@@ -105,6 +116,17 @@ main {
 
 .section-block {
     background-color: var(--transparent-field)
+}
+
+.section-header {
+    font-size: 1.5em;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    text-transform: capitalize;
+}
+
+.section-header > * {
+    font-weight: 100;
 }
 
 .connections {
@@ -162,6 +184,7 @@ main {
     /* background-color: red; */
     flex-grow: 1;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
 .quick-content > p {
@@ -172,6 +195,7 @@ main {
     margin-left: 60px; */
     align-self: center;
     line-height: 1.4em;
+    font-weight: 100;
 }
 
 .profile-big {
@@ -184,7 +208,6 @@ main {
 }
 
 .spotify-information {
-    margin-top: 10px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -210,13 +233,12 @@ main {
 }
 
 #song-title {
-    font-weight: 400;
+    font-weight: 300;
     padding-bottom: 5px
 }
 
 .song-information {
     flex-grow: 3;
-    background-color: var(--transparent-field);
     font-size: 2em;
     display: inline-flex;
     flex-direction: column;
@@ -224,6 +246,10 @@ main {
     padding-left: 30px;
     padding-right: 30px;
     gap: 30px;
+}
+
+.song-information > p {
+    font-weight: 100;
 }
 
 .song-thumbnail {
@@ -268,4 +294,26 @@ main {
 .song-thumbnail > img {
     width: 300px;
     min-height: 300px;
+}
+
+.verical-flex {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.gap-10-top {
+    padding-top: 10px;
+}
+
+.section-divider-horizontal {
+    width: 100%;
+    height: 10px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: var(--transparent-field);
+    content: " ";
+    display: block;
 }
