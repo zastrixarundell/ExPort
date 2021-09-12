@@ -14,9 +14,10 @@ defmodule ExPortWeb.Components.SpotifyLiveComponent do
             <p id="song-artist">by <%= @song.artists %></p>
             <p id="song-album">on <%= @song.album_name %></p>
             <div class="song-progress">
-              <span>2:30</span>
-              <div class="song-progress-bar"></div>
-              <span>5:00</span>
+              <span class="current-progress"><%= @song.progress %></span>
+              <div id="song-progress-bar" { %{progress: "#{@song.progress_percent}%", progress_ms: @song.progress_ms, duration_ms: @song.song_duration_ms }}>
+              </div>
+              <span class="song-length"><%= @song.song_duration %></span>
             </div>
           </div>
         </div>
@@ -24,6 +25,7 @@ defmodule ExPortWeb.Components.SpotifyLiveComponent do
           <img src={ @song.thumbnail } alt="Cover Art">
         </div>
       </section>
+      <script src={ ExPortWeb.Router.Helpers.static_path(@socket, "/assets/spotify.js") }></script>
     <% end %>
     """
   end

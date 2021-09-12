@@ -5,6 +5,7 @@
     --transparent-field: rgba(0, 0, 0, 0.4);
     --highlight-color: rgba(30, 215, 96, 0.4);
     --scroll-wheel: rgba(133, 232, 168, 0.3);
+    --progress-bar-bg: rgba(255, 255, 255, 0.672);
 }
 
 * {
@@ -239,17 +240,28 @@ main {
 .song-progress {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
 }
 
 .song-progress > span {
     color: lightgray;
     font-size: 0.5em;
+    max-width: 2em;
+    min-width: 2em;
 }
 
-.song-progress-bar {
+.current-progress {
+    text-align: left;
+}
+
+.song-length {
+    text-align: right;
+}
+
+#song-progress-bar {
     width: 100%;
-    background: linear-gradient(90deg, var(--highlight-color) 0%, var(--highlight-color) 50%, lightgray 50%);
+    background: linear-gradient(90deg, var(--highlight-color) 0%, var(--highlight-color) 0%, var(--progress-bar-bg) 0%);
     height: 3px;
 }
 

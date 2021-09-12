@@ -94,7 +94,7 @@ defmodule ExPort.Cache.UserCache do
     {:ok, {Accounts.first_user!(), nil}}
   end
 
-  def schedule_sync(seconds \\ 2) do
+  def schedule_sync(seconds \\ 1) do
     Process.send_after(self(), :spotify_sync, seconds * 1000)
   end
 end

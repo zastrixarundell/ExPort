@@ -18,9 +18,11 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
 
     data = %{
       song_name: song["item"]["name"],
-      ms_progress: ms_progress,
-      song_duration: song_duration,
-      progress: progress,
+      progress: normalize_ms(ms_progress),
+      progress_ms: ms_progress,
+      song_duration: normalize_ms(song_duration),
+      song_duration_ms: song_duration,
+      progress_percent: progress,
       album_name: song["item"]["album"]["name"],
       paused: !song["is_playing"],
       artists: song["item"] ["album"]["artists"] |> Enum.map(& &1["name"]) |> Enum.join(", "),
@@ -35,4 +37,35 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
   def serialize!({:ok, _}), do: {:ok, nil}
 
   def serialize!(passthrough), do: passthrough
+
+  @dialyzer {:no_return, {:normalize_ms, 1}}
+
+  @doc """
+  Normalizes ms to readable time.
+
+    ## Examples
+
+      iex> ExPort.Serializer.SpotifySongSerializer.normalize_ms(60_000)
+      "1:00"
+
+      iex> ExPort.Serializer.SpotifySongSerializer.normalize_ms(321_000)
+      "5:21"
+
+      iex> ExPort.Serializer.SpotifySongSerializer.normalize_ms(3_640_000)
+      "1:00:40"
+  """
+  @spec normalize_ms(non_neg_integer()) :: String.t()
+  def normalize_ms(ms) when ms < 60_000 do
+    ~T[00:00:00]
+    |> Time.add(ms, :millisecond)
+    |> Calendar.strftime("0:%S")
+  end
+
+  def normalize_ms(ms) do
+    ~T[00:00:00]
+    |> Time.add(ms, :millisecond)
+    |> Calendar.strftime("%H:%M:%S")
+    |> String.trim_leading("00:")
+    |> String.trim_leading("0")
+  end
 end
