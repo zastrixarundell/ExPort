@@ -52,6 +52,22 @@ config :ex_port, :spotify,
   api_client: System.get_env("SPOTIFY_API_CLIENT"),
   api_secret: System.get_env("SPOTIFY_API_SECRET")
 
+config :ex_port, :application,
+  children: [
+    # Start the Ecto repository
+    ExPort.Repo,
+    # Start the Telemetry supervisor
+    ExPortWeb.Telemetry,
+    # Start the PubSub system
+    {Phoenix.PubSub, name: ExPort.PubSub},
+    # Start the Endpoint (http/https)
+    ExPortWeb.Endpoint,
+    # Start a worker by calling: ExPort.Worker.start_link(arg)
+    # {ExPort.Worker, arg}
+    ExPort.Cache.UserCache,
+    ExPort.Scheduler
+  ]
+
 config :ex_port, ExPort.Scheduler,
   jobs: [
     {"* * * * *", fn -> ExPort.Services.SpotifyService.reauth_user(ExPort.Accounts.first_user!()) end}

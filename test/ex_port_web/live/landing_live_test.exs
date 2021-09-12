@@ -5,20 +5,22 @@ defmodule ExPortWeb.LandingLiveTest do
 
   import ExPort.AccountsFixtures
 
+  import Mox
+
   @path "/"
 
-  def wait_until(fun), do: wait_until(2_000, fun)
+  setup :set_mox_from_context
 
-  def wait_until(10, fun), do: fun.()
+  setup do
+    Mox.stub_with(ExPort.SpotifyApiMock, ExPort.SpotifyApiStub)
+    {:ok, pid} = start_supervised(ExPort.Cache.UserCache)
 
-  def wait_until(time, fun) do
-    try do
-      fun.()
-    rescue
-      ExUnit.AssertionError ->
-        :timer.sleep(10)
-        wait_until(max(0, time - 10), fun)
-    end
+    user = user_fixture()
+    ExPort.Cache.UserCache.update_user(user)
+
+    Process.send(pid, :spotify_sync, [:nosuspend])
+
+    :ok
   end
 
   test "connected mount", %{conn: conn} do
@@ -29,13 +31,9 @@ defmodule ExPortWeb.LandingLiveTest do
   end
 
   test "handles Spotify PubSub broadcasts", %{conn: conn} do
-    Mox.stub_with(ExPort.SpotifyApiMock, ExPort.SpotifyApiStub)
     conn = get(conn, @path)
 
-    wait_until(fn ->
-      Mox.stub_with(ExPort.SpotifyApiMock, ExPort.SpotifyApiStub)
-      {:ok, _view, html} = live(conn)
-      assert html =~ "Demon Hunter"
-    end)
+    {:ok, _view, html} = live(conn)
+    assert html =~ "Demon Hunter"
   end
 end

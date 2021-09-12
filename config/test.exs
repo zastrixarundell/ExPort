@@ -30,3 +30,17 @@ config :phoenix, :plug_init_mode, :runtime
 
 config :ex_port, :spotify,
   api_service: ExPort.SpotifyApiMock
+
+config :ex_port, :application,
+  children: [
+    # Start the Ecto repository
+    ExPort.Repo,
+    # Start the Telemetry supervisor
+    ExPortWeb.Telemetry,
+    # Start the PubSub system
+    {Phoenix.PubSub, name: ExPort.PubSub},
+    # Start the Endpoint (http/https)
+    ExPortWeb.Endpoint,
+    # Start a worker by calling: ExPort.Worker.start_link(arg)
+    # {ExPort.Worker, arg}
+  ]
