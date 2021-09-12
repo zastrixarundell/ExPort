@@ -50,8 +50,8 @@ defmodule ExPort.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:timex, "~> 3.0"},
-      {:mox, "~> 1.0.0"},
-      {:faker, "~> 0.16.0", only: [:test, :dev]},
+      {:mox, "~> 1.0.0", only: [:test, :dev], runtime: Mix.env == :test},
+      {:faker, "~> 0.16.0", only: [:test, :dev], runtime: Mix.env == :test},
       {:httpoison, "~> 1.8"},
       {:quantum, "~> 3.0"}
     ]
