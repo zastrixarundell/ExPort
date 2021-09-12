@@ -2,7 +2,7 @@
 
 :root {
     --profile-border: #6d6d6d;
-    --transparent-field: rgba(0, 0, 0, 0.4);
+    --transparent-field: rgba(0, 0, 0, 0.5);
     --highlight-color: rgba(30, 215, 96, 0.4);
     --scroll-wheel: rgba(133, 232, 168, 0.3);
     --progress-bar-bg: rgba(255, 255, 255, 0.672);
@@ -25,7 +25,7 @@ body {
     background-image: url("../../priv/static/images/background.jpg");
     background-size: cover;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     font-family: 'Urbanist', sans-serif;
 }
 
@@ -230,63 +230,45 @@ footer:hover {
     /* border-style: solid; */
 }
 
+/* EVERYTHING THAT HAS TO DO WITH SPOTIFY */
+
 .spotify-information {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: stretch;
     gap: 10px;
 }
 
-.song-text {
+.song-text-block {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: inherit;
-    gap: 10px;
-}
-
-.song-title {
-    flex-grow: 1;
-    background-color: var(--highlight-color);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
     font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px;
 }
 
 #song-title {
     font-weight: 300;
-    padding-bottom: 5px
+    margin-bottom: 5px;
 }
 
-.song-information {
-    flex-grow: 3;
-    font-size: 2em;
-    display: inline-flex;
+.song-description {
+    display: flex;
+    gap: 5px;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    gap: 30px;
 }
 
-.song-information > p {
+.song-description > p {
     font-weight: 100;
 }
 
-.song-thumbnail {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 300px;
-    width: 300px;
-    max-width: 300px;
-    height: 300px;
-    max-height: 300px;
-    background-color: var(--transparent-field);
-}
-
 .song-progress {
+    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -314,10 +296,23 @@ footer:hover {
     height: 3px;
 }
 
+.song-thumbnail {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 300px;
+    width: 300px;
+    max-width: 300px;
+    height: 300px;
+    max-height: 300px;
+    background-color: var(--transparent-field);
+}
+
 .song-thumbnail > img {
     width: 300px;
     min-height: 300px;
 }
+
+/* DOES NOT HAVE WITH SPOTIFY */
 
 .verical-flex {
     display: flex;
