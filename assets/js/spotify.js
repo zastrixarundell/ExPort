@@ -18,5 +18,5 @@ window.addEventListener("phx:update", () => {
 })
 
 function adjustProgress(progress, progressBar) {
-    progressBar.style.background = `linear-gradient(90deg, var(--highlight-color) 0%, var(--highlight-color) ${progress}, var(--progress-bar-bg) ${progress})`;
+    progressBar.style.background = `linear-gradient(90deg, var(--spotify-highlight-color) 0%, var(--spotify-highlight-color) ${progress}, var(--progress-bar-bg) ${progress})`;
 }

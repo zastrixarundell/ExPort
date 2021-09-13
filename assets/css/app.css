@@ -4,8 +4,8 @@
 :root {
     --profile-border: #6d6d6d;
     --transparent-field: rgba(20, 20, 20, 0.6);
-    --highlight-color: rgba(30, 215, 96, 0.4);
-    --scroll-wheel: rgba(133, 232, 168, 0.3);
+    --spotify-highlight-color: rgba(30, 215, 96, 0.4);
+    --scroll-wheel: rgba(133, 184, 232, 0.57);
     --progress-bar-bg: rgba(255, 255, 255, 0.672);
 }
 
@@ -275,7 +275,7 @@ main {
 
 #song-progress-bar {
     width: 100%;
-    background: linear-gradient(90deg, var(--highlight-color) 0%, var(--highlight-color) 0%, var(--progress-bar-bg) 0%);
+    background: linear-gradient(90deg, var(--spotify-highlight-color) 0%, var(--spotify-highlight-color) 0%, var(--progress-bar-bg) 0%);
     height: 3px;
 }
 
