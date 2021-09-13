@@ -10,8 +10,8 @@ defmodule ExPortWeb.Components.SpotifyLiveComponent do
         <div class="section-block section-header">
           <h2>Current Spotify activity</h2>
         </div>
-        <div class="spotify-information">
-          <div class="song-text-block section-block">
+        <div id="spotify-song" class="spotify-information">
+          <div id="spotify-song-text" class="song-text-block section-block">
             <h1 id="song-title"><%= @song.song_name %></h1>
             <div class="song-description">
               <p id="song-artist">by <%= @song.artists %></p>
@@ -24,9 +24,7 @@ defmodule ExPortWeb.Components.SpotifyLiveComponent do
               <span class="song-length"><%= @song.song_duration %></span>
             </div>
           </div>
-          <div class="song-thumbnail">
-            <img src={ @song.thumbnail } alt="Cover Art">
-          </div>
+          <img id="spotify-thumbnail" class="song-thumbnail" src={ @song.thumbnail } alt="Cover Art">
         </div>
       </section>
       <script src={ ExPortWeb.Router.Helpers.static_path(@socket, "/assets/spotify.js") }></script>

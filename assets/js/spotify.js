@@ -2,8 +2,6 @@ window.addEventListener("phx:update", () => {
     let progressBar = document.getElementById("song-progress-bar");
     let progress = progressBar.getAttribute("progress");
 
-    console.log(progress);
-
     adjustProgress(progress, progressBar);
     setTimeout(() => {
         let progressBar = document.getElementById("song-progress-bar");

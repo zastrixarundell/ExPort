@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400&display=swap');
+@import url('media_queries.css');
 
 :root {
     --profile-border: #6d6d6d;
@@ -35,12 +36,6 @@ main {
     margin-right: auto;
 }
 
-@media screen and (max-width: 1280px) {
-    main {
-        width: 80%;
-    }
-  }
-  
 
 .navbar-holder {
     top: 0px;
@@ -56,7 +51,7 @@ main {
 }
 
 .navbar-holder-dark {
-    background-color: black !important; 
+    background-color: black !important;
 }
 
 .navigation {
@@ -97,17 +92,6 @@ main {
     width: 100%;
 }
 
-footer {
-    background-color: var(--transparent-field);
-    width: 100%;
-    height: 100px;
-    transition: 0.3s;
-}
-
-footer:hover {
-    background-color: black;
-}
-
 .main-user-banner {
     display: flex;
     margin-top: 100px;
@@ -125,7 +109,7 @@ footer:hover {
     text-transform: capitalize;
 }
 
-.section-header > * {
+.section-header>* {
     font-weight: 100;
 }
 
@@ -150,7 +134,7 @@ footer:hover {
     transition: 0.3s;
 }
 
-.connection-button > li {
+.connection-button>li {
     transition: 0.3s;
 }
 
@@ -163,14 +147,14 @@ footer:hover {
 }
 
 .steam-connection-button:hover {
-    background-color:  	rgba(68, 96, 130, 1);
+    background-color: rgba(68, 96, 130, 1);
 }
 
 .github-connection-button:hover {
     background-color: white;
 }
 
-.github-connection-button:hover > li {
+.github-connection-button:hover>li {
     color: black;
 }
 
@@ -178,7 +162,7 @@ footer:hover {
     background-color: #d44638;
 }
 
-.connections > ul {
+.connections>ul {
     list-style: none;
     display: flex;
     width: 100%;
@@ -187,7 +171,7 @@ footer:hover {
     height: 100%;
 }
 
-.connections > ul > li {
+.connections>ul>li {
     display: inline;
 }
 
@@ -201,7 +185,7 @@ footer:hover {
     padding: 40px 60px 20px 60px;
 }
 
-.quick-content > h1 {
+.quick-content>h1 {
     margin-top: 15px;
     font-size: 3em;
     /* background-color: red; */
@@ -210,7 +194,7 @@ footer:hover {
     font-weight: 300;
 }
 
-.quick-content > p {
+.quick-content>p {
     /* background-color: green; */
     font-size: 2em;
     flex-grow: 1;
@@ -222,12 +206,8 @@ footer:hover {
 }
 
 .profile-big {
-    /* The image is already 1:1 */
     width: 300px;
     display: block;
-    /* border-color: var(--profile-border); */
-    /* border-width: 20px; */
-    /* border-style: solid; */
 }
 
 /* EVERYTHING THAT HAS TO DO WITH SPOTIFY */
@@ -235,21 +215,20 @@ footer:hover {
 .spotify-information {
     width: 100%;
     display: flex;
+    /* flex: 4 1 auto; */
     flex-direction: row;
     justify-content: flex-start;
-    align-items: stretch;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .song-text-block {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 2em;
+    padding: 30px;
+    flex-grow: 4;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 30px;
+    font-size: 2em;
 }
 
 #song-title {
@@ -263,8 +242,12 @@ footer:hover {
     flex-direction: column;
 }
 
-.song-description > p {
+.song-description>p {
     font-weight: 100;
+}
+
+#song-album {
+    margin-bottom: 20px;
 }
 
 .song-progress {
@@ -275,7 +258,7 @@ footer:hover {
     gap: 10px;
 }
 
-.song-progress > span {
+.song-progress>span {
     color: lightgray;
     font-size: 0.5em;
     max-width: 2em;
@@ -297,19 +280,9 @@ footer:hover {
 }
 
 .song-thumbnail {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 300px;
-    width: 300px;
     max-width: 300px;
-    height: 300px;
-    max-height: 300px;
-    background-color: var(--transparent-field);
-}
-
-.song-thumbnail > img {
     width: 300px;
-    min-height: 300px;
+    height: 300px;
 }
 
 /* DOES NOT HAVE WITH SPOTIFY */
