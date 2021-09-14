@@ -37,10 +37,10 @@ Hooks.Thumbnail = {
 }
 
 function hideThumbnail(element) {
-    if (element.offsetTop > 583) 
-        element.style.display = 'none';
-    else
-        element.style.display = 'block';
+    // if (element.offsetTop > 583) 
+    //     element.style.display = 'none';
+    // else
+    //     element.style.display = 'block';
 }
 
 // General text block
@@ -60,14 +60,14 @@ Hooks.SpotifyText = {
 }
 
 function setBackground(element) {
-    thumbnail = document.getElementById('spotify-thumbnail');
+    // thumbnail = document.getElementById('spotify-thumbnail');
 
-    console.log(thumbnail.offsetTop);
+    // console.log(thumbnail.offsetTop);
 
-    if ((thumbnail.offsetTop > 583) || (thumbnail.offsetTop == 0)) 
-        element.style.backgroundImage = `url(${thumbnail.getAttribute('src')})`;
-    else
-        element.style.backgroundImage = '';
+    // if ((thumbnail.offsetTop > 583) || (thumbnail.offsetTop == 0)) 
+    //     element.style.backgroundImage = `url(${thumbnail.getAttribute('src')})`;
+    // else
+    //     element.style.backgroundImage = '';
 }
 
 export { Hooks }

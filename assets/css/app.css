@@ -1,12 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
 @import url('media_queries.css');
 
 :root {
     --profile-border: #6d6d6d;
     --transparent-field: rgba(20, 20, 20, 0.6);
-    --spotify-highlight-color: rgba(30, 215, 96, 0.4);
+    --spotify-highlight-color: #1DB954;
+    --discord-highlight-color: #5865F2;
+    --steam-highlight-color: #000;
+    --gmail-highlight-color: #EA4335;
+    --github-highlight-color: #181717;
+    --xbox-highlight-color: #107C10;
+    --highlight-color: #C14BFB;
     --scroll-wheel: rgba(133, 184, 232, 0.57);
-    --progress-bar-bg: rgba(255, 255, 255, 0.672);
+    --progress-bar-bg: rgba(102, 102, 102, 0.672);
+    --background-color: rgb(20, 20, 20);
 }
 
 * {
@@ -18,15 +26,11 @@
 }
 
 html {
-    scrollbar-color: var(--scroll-wheel) black;
+    scrollbar-color: var(--highlight-color) black;
 }
 
 body {
-    background-attachment: fixed;
-    background-image: url("../../priv/static/images/background.jpg");
-    background-size: cover;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: var(--background-color);
     font-family: 'Urbanist', sans-serif;
 }
 
@@ -36,6 +40,15 @@ main {
     margin-right: auto;
 }
 
+.background {
+    background-image: url(../../priv/static/images/background.jpg);
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-size: cover;
+}
 
 .navbar-holder {
     top: 0px;
@@ -44,14 +57,15 @@ main {
     width: 100%;
     padding: 20px 0 20px 0;
     transition: 0.5s;
+    z-index: 1000;
 }
 
 .navbar-holder:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .navbar-holder-dark {
-    background-color: black !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
 }
 
 .navigation {
@@ -92,14 +106,59 @@ main {
     width: 100%;
 }
 
-.main-user-banner {
+.main-user-container {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    margin-top: 100px;
-    gap: 10px;
+    width: 80%;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.section-block {
-    background-color: var(--transparent-field)
+.main-user-banner {
+    position: relative;
+    display: flex;
+    margin-top: calc(30vh - 150px);
+    gap: 10px;
+    background-color: var(--background-color);
+    z-index: 1;
+    width: 100%;
+    align-self: center;
+}
+
+.profile {
+    width: 300px;
+    display: block;
+}
+
+.hero {
+    color: white;
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 60px 20px 60px;
+}
+
+.hero>h1 {
+    margin-top: 15px;
+    font-size: 5em;
+    /* background-color: red; */
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.hero>p {
+    /* background-color: green; */
+    font-size: 3em;
+    flex-grow: 1;
+    /* margin-right: 60px;
+    margin-left: 60px; */
+    align-self: center;
+    line-height: 1.4em;
+    font-weight: 100;
 }
 
 .section-header {
@@ -114,59 +173,21 @@ main {
 }
 
 .connections {
-    width: 100%;
-    margin-top: 10px;
-    padding: 20px 20px 20px 20px;
-    height: 75px;
-    width: 100%;
+    margin-top: 50px;
+    /* height: 75px; */
+    /* width: 100%; */
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.connection-button {
-    width: 100%;
-    height: 100%;
-    display: inline-flex;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     transition: 0.3s;
-}
-
-.connection-button>li {
-    transition: 0.3s;
-}
-
-.discord-connection-button:hover {
-    background-color: rgba(88, 101, 242, 1);
-}
-
-.spotify-connection-button:hover {
-    background-color: rgba(30, 215, 96, 1);
-}
-
-.steam-connection-button:hover {
-    background-color: rgba(68, 96, 130, 1);
-}
-
-.github-connection-button:hover {
-    background-color: white;
-}
-
-.github-connection-button:hover>li {
-    color: black;
-}
-
-.email-connection-button:hover {
-    background-color: #d44638;
 }
 
 .connections>ul {
     list-style: none;
     display: flex;
-    width: 100%;
-    justify-content: space-around;
+    width: 80%;
+    justify-content: space-evenly;
     gap: 20px;
     height: 100%;
 }
@@ -175,64 +196,124 @@ main {
     display: inline;
 }
 
-.quick-content {
-    color: white;
+.connection-button {
+    width: 200px;
+    height: 75px;
+    transition: 0.3s;
+}
+
+.connection-button>li {
+    transition: 0.3s;
+}
+
+.discord-connection-button {
+    background-color: var(--discord-highlight-color);
+}
+
+.spotify-connection-button {
+    background-color: var(--spotify-highlight-color);
+}
+
+.steam-connection-button {
+    background-color: var(--steam-highlight-color);
+}
+
+.github-connection-button {
+    background-color: var(--github-highlight-color);
+}
+
+.email-connection-button {
+    background-color: var(--gmail-highlight-color);
+}
+
+.discord-connection-button:hover {
+    background-color: rgba(88, 101, 242, 0.6);
+}
+
+.spotify-connection-button:hover {
+    background-color: rgba(30, 215, 96, 0.6);
+}
+
+.steam-connection-button:hover {
+    background-color: rgba(68, 96, 130, 0.6);
+}
+
+.github-connection-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.email-connection-button:hover {
+    background-color: rgba(212, 70, 56, 0.6);
+}
+
+.separator {
+    min-height: 50px;
+}
+
+
+/* Meet me section */
+
+.meet-me>ul {
     display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 60px 20px 60px;
-}
-
-.quick-content>h1 {
-    margin-top: 15px;
-    font-size: 3em;
-    /* background-color: red; */
-    flex-grow: 1;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-
-.quick-content>p {
-    /* background-color: green; */
-    font-size: 2em;
-    flex-grow: 1;
-    /* margin-right: 60px;
-    margin-left: 60px; */
-    align-self: center;
-    line-height: 1.4em;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    padding-left: 1.2em;
+    margin-left: 0px;
+    list-style: none;
+    position: relative;
+    font-size: 1.4em;
     font-weight: 100;
 }
 
-.profile-big {
-    width: 300px;
-    display: block;
+.meet-me>ul>li::before {
+    font-family: 'Karla', sans-serif;
+    content: '|>';
+    position: absolute;
+    left: 0;
+    font-size: 1em;
+    font-weight: 400;
 }
+
 
 /* EVERYTHING THAT HAS TO DO WITH SPOTIFY */
 
-.spotify-information {
-    width: 100%;
-    display: flex;
-    /* flex: 4 1 auto; */
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-    flex-wrap: wrap;
+/* .spotify-information { */
+/* width: 100%; */
+/* display: flex; */
+/* flex: 4 1 auto; */
+/* flex-direction: row; */
+/* justify-content: flex-start; */
+/* gap: 10px; */
+/* flex-wrap: wrap; */
+/* } */
+
+.song-thumbnail {
+    width: 400px;
+    height: 400px;
 }
 
+#spotify-information {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.spotify-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
 .song-text-block {
-    padding: 30px;
-    flex-grow: 4;
+    padding-left: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     font-size: 2em;
-    overflow: hidden;
-    background-size: cover;
-    background-blend-mode: overlay;
-    min-width: 60%;
+    width: 100%;
 }
 
 #song-title {
@@ -267,6 +348,7 @@ main {
     font-size: 0.5em;
     max-width: 2em;
     min-width: 2em;
+    font-size: 1.2em;
 }
 
 .current-progress {
@@ -280,12 +362,7 @@ main {
 #song-progress-bar {
     width: 100%;
     background: linear-gradient(90deg, var(--spotify-highlight-color) 0%, var(--spotify-highlight-color) 0%, var(--progress-bar-bg) 0%);
-    height: 3px;
-}
-
-.song-thumbnail {
-    width: 300px;
-    height: 300px;
+    height: 5px;
 }
 
 /* DOES NOT HAVE WITH SPOTIFY */

@@ -1,6 +1,10 @@
 @media screen and (max-width: 1530px) {
-    main {
-        width: 80% !important;
+    .background {
+        height: 40vh !important;
+    }
+
+    .main-user-banner {
+        margin-top: calc(40vh - 150px) !important;
     }
 }
 
