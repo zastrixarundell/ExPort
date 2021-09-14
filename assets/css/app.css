@@ -186,43 +186,63 @@ main {
 .connections>ul {
     list-style: none;
     display: flex;
-    width: 80%;
-    justify-content: space-evenly;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
     height: 100%;
 }
 
 .connections>ul>li {
-    display: inline;
+    height: 50px;
+    flex-grow: 1;
 }
 
 .connection-button {
-    width: 200px;
-    height: 75px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.connection-button {
     transition: 0.3s;
 }
 
-.connection-button>li {
-    transition: 0.3s;
+.connection-button>img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(329deg) brightness(102%) contrast(104%);
+    width: 25px;
+    height: 25px;
 }
 
-.discord-connection-button {
+.connection-logo {
+    width: 50px;
+    height: 50px;
+    /* background-color: white; */
+}
+
+.discord-button {
     background-color: var(--discord-highlight-color);
 }
 
-.spotify-connection-button {
+.spotify-button {
     background-color: var(--spotify-highlight-color);
 }
 
-.steam-connection-button {
+.xbox-button {
+    background-color: var(--xbox-highlight-color);
+}
+
+.steam-button {
     background-color: var(--steam-highlight-color);
 }
 
-.github-connection-button {
+.github-button {
     background-color: var(--github-highlight-color);
 }
 
-.email-connection-button {
+.gmail-button {
     background-color: var(--gmail-highlight-color);
 }
 
