@@ -7,9 +7,9 @@
     --transparent-field: rgba(20, 20, 20, 0.6);
     --spotify-highlight-color: #1DB954;
     --discord-highlight-color: #5865F2;
-    --steam-highlight-color: #000;
+    --steam-highlight-color: #1b2838;
     --gmail-highlight-color: #EA4335;
-    --github-highlight-color: #181717;
+    --github-highlight-color: #14232c;
     --xbox-highlight-color: #107C10;
     --highlight-color: #C14BFB;
     --scroll-wheel: rgba(133, 184, 232, 0.57);
@@ -173,7 +173,7 @@ main {
 }
 
 .connections {
-    margin-top: 50px;
+    margin-top: 20px;
     /* height: 75px; */
     /* width: 100%; */
     display: flex;
@@ -186,6 +186,7 @@ main {
 .connections>ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: space-between;
     align-items: center;
@@ -200,26 +201,26 @@ main {
 }
 
 .connection-button {
+    min-width: 100px;
     height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.connection-button {
     transition: 0.3s;
-}
-
-.connection-button>img {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(329deg) brightness(102%) contrast(104%);
-    width: 25px;
-    height: 25px;
+    position: relative;
 }
 
 .connection-logo {
-    width: 50px;
-    height: 50px;
-    /* background-color: white; */
+    position: absolute;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(329deg) brightness(102%) contrast(104%);
+    width: 25px;
+    height: 25px;
+    transition: 0.2s;
+}
+
+.connection-button:hover > .connection-logo {
+    width: 35px;
+    height: 35px;
 }
 
 .discord-button {
