@@ -6,6 +6,15 @@
     .main-user-banner {
         margin-top: calc(40vh - 150px) !important;
     }
+
+    .song-thumbnail {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .hero>p {
+        font-size: 2em !important;
+    }
 }
 
 @media screen and (max-width: 950px) {
