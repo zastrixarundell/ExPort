@@ -6,6 +6,12 @@ Hooks.SpotifyProgressBar = {
         let progress = progressBar.getAttribute("progress");
 
         adjustProgress(progress, progressBar);
+
+        // I'm just using a timeout to add smoother playing. If I made it update automatically
+        // it would eventually go a tad faster than the websocket says and the progress bar would
+        // jump around... 
+        //
+        // ... also spotify increments the bar every 500ms so...
         setTimeout(() => {
             let progressBar = document.getElementById("song-progress-bar");
             let progress = parseInt(progressBar.getAttribute("progress-ms")) + 500;
