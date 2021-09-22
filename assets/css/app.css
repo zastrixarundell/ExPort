@@ -73,7 +73,6 @@ main {
     margin-right: auto;
     width: 90%;
     text-transform: uppercase;
-    color: white;
     font-size: 2rem;
     display: flex;
     list-style: none;
@@ -350,6 +349,7 @@ main {
 
 .song-description>p {
     font-weight: 100;
+    color: rgb(170, 170, 170);
 }
 
 #song-album {
