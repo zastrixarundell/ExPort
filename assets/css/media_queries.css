@@ -1,0 +1,103 @@
+@media screen and (max-width: 1530px) {
+    .background {
+        height: 40vh !important;
+    }
+
+    .main-user-banner {
+        margin-top: calc(40vh - 150px) !important;
+    }
+
+    .song-thumbnail {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    .hero>p {
+        font-size: 2em !important;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .quick-content {
+        padding: 20px 30px 20px 20px !important;
+        /* background-color: red; */
+        /* padding: 5px 5px 5px 5px !important; */
+    }
+
+    .quick-content>h1 {
+        font-size: 3em !important;
+    }
+
+    .quick-content>p {
+        font-size: 2em !important;
+    }
+}
+
+@media screen and (max-width: 880px) {
+
+    .quick-content {
+        padding: 20px 20px 20px 20px !important;
+        /* background-color: red; */
+        /* padding: 5px 5px 5px 5px !important; */
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .quick-content>h1 {
+        font-size: 2.5em !important;
+    }
+
+    .quick-content>p {
+        font-size: 1.75em !important;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .quick-content>h1 {
+        font-size: 2em !important;
+    }
+
+    .quick-content>p {
+        font-size: 1.65em !important;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .quick-content>h1 {
+        font-size: 1.6em !important;
+    }
+
+    .quick-content>p {
+        font-size: 1.5em !important;
+    }
+}
+
+@media screen and (max-width: 611px) {
+    .main-user-banner {
+        flex-direction: column-reverse;
+    }
+
+    .profile-big {
+        display: none !important;
+    }
+
+    .connections {
+        height: auto !important;
+    }
+
+    .connections>ul {
+        flex-direction: column !important;
+    }
+
+    .connection-button {
+        padding: 10px 0px 10px 0px;
+    }
+
+    .section-header>h2 {
+        font-size: 1.25em !important;
+    }
+
+    /* .spotify-information { */
+        /* flex-direction: column !important; */
+    /* } */
+}

@@ -1,5 +1,7 @@
 defmodule ExPort.Serializer.SpotifySongSerializer do
 
+  alias ExPort.Struct.Song
+
   @moduledoc """
   Serialier for spotify songs.
   """
@@ -16,7 +18,7 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
 
     progress = (ms_progress * 100 / song_duration)  |> Float.round(1)
 
-    data = %{
+    data = %Song{
       song_name: song["item"]["name"],
       progress: normalize_ms(ms_progress),
       progress_ms: ms_progress,
@@ -24,10 +26,7 @@ defmodule ExPort.Serializer.SpotifySongSerializer do
       song_duration_ms: song_duration,
       progress_percent: progress,
       album_name: song["item"]["album"]["name"],
-      paused: !song["is_playing"],
-      artists: song["item"] ["album"]["artists"] |> Enum.map(& &1["name"]) |> Enum.join(", "),
-      preview: song["item"]["preview_url"],
-      url: song["item"]["external_urls"]["spotify"],
+      artists: song["item"]["artists"] |> Enum.map(& &1["name"]) |> Enum.join(", "),
       thumbnail: song["item"]["album"]["images"] |> List.wrap() |> List.first() |> (& &1["url"]).()
     }
 

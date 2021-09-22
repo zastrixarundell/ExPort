@@ -1,28 +1,39 @@
-<main>
-  <div class="main-user-banner">
-    <img src="/images/profile.jpg" alt="Zastrix" class="profile profile-big">
-    <section class="quick-content section-block">
+<div class="main-user-container">
+  <section class="main-user-banner" id="user-section">
+    <img src="https://avatars.githubusercontent.com/u/30195425" alt="Zastrix" class="profile">
+    <div class="hero">
       <h1>Zastrix</h1>
-      <p>20 year old developer with a knack for FOSS, RPGs, books and metal.</p>
-    </section>
-  </div>
-  <section class="connections section-block">
+      <p>A barely-functional, functional developer...</p>
+    </div>
+  </section>
+  <div class="connections">
     <ul>
-      <a href="#discord" class="connection-button discord-connection-button">
-        <li>Discord</li>
-      </a>
-      <a href="#discord" class="connection-button spotify-connection-button">
-        <li>Spotify</li>
-      </a>
-      <a href="#steam" class="connection-button steam-connection-button">
-        <li>Steam</li>
-      </a>
-      <a href="#github" class="connection-button github-connection-button">
-        <li>Github</li>
-      </a>
-      <a href="#email" class="connection-button email-connection-button">
-        <li>Email</li>
-      </a>
+      <li><a href="https://discordapp.com/users/192300733234675722" target="_blank" class="connection-button discord-button"><img class="connection-logo" src="/svgs/discord.svg" alt=""></a></li>
+      <li><a href="https://open.spotify.com/user/1kgaeu6x64hdmj5a2ppqzrtfn" target="_blank" class="connection-button spotify-button"><img class="connection-logo" src="/svgs/spotify.svg" alt=""></a></li>
+      <li><a href="https://account.xbox.com/en-us/profile?gamertag=Zastrix7130" target="_blank" class="connection-button xbox-button"><img class="connection-logo" src="/svgs/xbox.svg" alt=""></a></li>
+      <li><a href="https://steamcommunity.com/id/zastrixarundell" target="_blank" class="connection-button steam-button"><img class="connection-logo" src="/svgs/steam.svg" alt=""></a></li>
+      <li><a href="https://github.com/zastrixarundell" target="_blank" class="connection-button github-button"><img class="connection-logo" src="/svgs/github.svg" alt=""></a></li>
+      <li><a href="mailto:zastrixarundell@gmail.com" class="connection-button gmail-button"><img class="connection-logo" src="/svgs/gmail.svg" alt=""></a></li>
+    </ul>
+  </div>
+</div>
+<main>
+  <div class="background">
+  </div>
+  <div class="separator"></div>
+  <section class="meet-me">
+    <ul>
+      <li>21 year old Applied Computer Science student at the Faculty of Technical Sciences in Novi Sad.
+        After some questionable studying and astronomically small luck I managed to get into free college.</li>
+      <li>I'm a huge fan of anything to do with RPGs or metal. I absolutely adore both Castlevania and The
+      Elder Scrolls series.</li>
+      <li>Developer who mostly uses Elixir and the Phoenix framework to build any form of
+        web servers, discord bots or applications (this one too). Sometimes for those applications I
+        create C++ embedded or Java runtime PC clients.</li>
+      <li>Part-time developer, full-time idiot.</li>
+      <li>I constantly spend my time either developing software, reading books or just losing time at the
+        rabbit hole which is commonly called: the internet.</li>
+      <li>I use Arch btw.</li>
     </ul>
   </section>
   <%= live_component ExPortWeb.Components.SpotifyLiveComponent, song: @song %>

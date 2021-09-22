@@ -12,7 +12,7 @@ defmodule ExPortWeb.LandingLive do
 
   @impl true
   def handle_info({:song, song}, socket) do
-    socket = assign(socket, song: song)
+    socket = update(socket, :song, fn _song -> song end)
     {:noreply, socket}
   end
 end
