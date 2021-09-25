@@ -52,6 +52,9 @@ config :ex_port, :spotify,
   api_client: System.get_env("SPOTIFY_API_CLIENT"),
   api_secret: System.get_env("SPOTIFY_API_SECRET")
 
+config :ex_port, :github,
+  api_service: ExPort.Services.GithubApi
+
 config :ex_port, :application,
   children: [
     # Start the Ecto repository

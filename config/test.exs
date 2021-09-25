@@ -31,6 +31,9 @@ config :phoenix, :plug_init_mode, :runtime
 config :ex_port, :spotify,
   api_service: ExPort.SpotifyApiMock
 
+config :ex_port, :github,
+  api_service: ExPort.GithubApiMock
+
 config :ex_port, :application,
   children: [
     # Start the Ecto repository
