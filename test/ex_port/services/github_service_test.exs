@@ -3,10 +3,9 @@ defmodule ExPort.GithubServiceTest do
 
   alias ExPort.Services.GithubService
 
-  import Mox
-
   setup do
-    # idk what to do
+    Mox.stub_with(ExPort.GithubApiMock, ExPort.GithubApiStub)
+    :ok
   end
 
   describe "repositories/1" do
