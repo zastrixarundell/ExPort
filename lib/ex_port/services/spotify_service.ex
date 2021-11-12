@@ -19,9 +19,10 @@ defmodule ExPort.Services.SpotifyService do
       iex> reauth_user(nil)
       {:error, :nil_user}
   """
-  @spec reauth_user(user :: User.t() | nil) :: {:ok, User.t()} | {:error, integer() | :nil_user}
+  @spec reauth_user(nil) :: {:error, :nil_user}
   def reauth_user(nil), do: {:error, :nil_user}
 
+  @spec reauth_user(user :: User.t()) :: {:ok, User.t()} | {:error, integer()}
   def reauth_user(user) do
     case @spotify_service.reauth_token(user.spotify_refresh_token) do
       {:ok, data} ->
@@ -60,7 +61,7 @@ defmodule ExPort.Services.SpotifyService do
   Subscribe to the Phoenix.PubSub server for when the
   user song state changes.
   """
-  @spec subscribe_info :: none()
+  @spec subscribe_info :: any()
   def subscribe_info do
     Phoenix.PubSub.subscribe(ExPort.PubSub, "spotify_info")
   end
@@ -68,7 +69,7 @@ defmodule ExPort.Services.SpotifyService do
   @doc """
   Broadcast song info about a user.
   """
-  @spec broadcast_info(%{} | nil) :: none()
+  @spec broadcast_info(%{} | nil) :: any()
   def broadcast_info(song) do
     Phoenix.PubSub.broadcast(ExPort.PubSub, "spotify_info", {:song, song})
   end

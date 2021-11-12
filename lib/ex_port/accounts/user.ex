@@ -13,6 +13,17 @@ defmodule ExPort.Accounts.User do
     timestamps()
   end
 
+  @type t() :: %__MODULE__{
+    spotify_token: String.t(),
+    spotify_refresh_token: String.t(),
+    discord_token: String.t(),
+    discord_refresh_token: String.t(),
+    github_token: String.t(),
+    github_refresh_token: String.t(),
+    updated_at: DateTime.t(),
+    inserted_at: DateTime.t()
+  }
+
   @doc false
   def changeset(user, attrs) do
     user

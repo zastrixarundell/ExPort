@@ -21,7 +21,7 @@ defmodule ExPort.Services.GithubApi do
 
     case HTTPoison.get(query, headers) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
-        {:ok, Jason.decode!(body)["items"] |> Repository.from_array}
+        {:ok, Jason.decode!(body)["items"] |> Repository.from_map_array()}
 
       {:ok, %HTTPoison.Response{status_code: code, body: body}} ->
         Logger.warn("Github query failed with code #{code} and body: #{body}")

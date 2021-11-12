@@ -17,6 +17,7 @@ defmodule ExPort.Accounts do
       [%User{}, ...]
 
   """
+  @spec list_users :: User.t()
   def list_users do
     Repo.all(User)
   end
@@ -35,8 +36,10 @@ defmodule ExPort.Accounts do
       ** (Ecto.NoResultsError)
 
   """
+  @spec get_user!(integer()) :: User.t()
   def get_user!(id), do: Repo.get!(User, id)
 
+  @spec first_user!() :: User.t()
   def first_user!(), do: User |> first() |> Repo.one()
 
   @doc """
@@ -51,6 +54,7 @@ defmodule ExPort.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec create_user(map()) :: {:ok, User.t()} | {:error, %Ecto.Changeset{}}
   def create_user(attrs \\ %{}) do
     %User{}
     |> User.changeset(attrs)
@@ -69,7 +73,7 @@ defmodule ExPort.Accounts do
       {:error, %Ecto.Changeset{}}
 
   """
-  @spec update_user(User.t(), %{}) :: User.t()
+  @spec update_user(User.t(), map()) :: {:ok, User.t()} | {:error, %Ecto.Changeset{}}
   def update_user(%User{} = user, attrs) do
     user
     |> User.changeset(attrs)
