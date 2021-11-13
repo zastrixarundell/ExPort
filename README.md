@@ -1,4 +1,4 @@
-# ExPort
+# ![Preview image](https://raw.githubusercontent.com/zastrixarundell/ExPort/master/priv/static/images/export.png) ExPort
 
 A personal online portfolio website.
 
