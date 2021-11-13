@@ -1178,6 +1178,136 @@ defmodule ExPort.GithubApiStub do
          "contents_url" =>
            "https://api.github.com/repos/zastrixarundell/dbio-java/contents/{+path}",
          "watchers" => 2
+       },
+       %{
+         "labels_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/labels{/name}",
+         "keys_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/keys{/key_id}",
+         "fork" => false,
+         "owner" => %{
+           "avatar_url" => "https://avatars.githubusercontent.com/u/30195425?v=4",
+           "events_url" => "https://api.github.com/users/zastrixarundell/events{/privacy}",
+           "followers_url" => "https://api.github.com/users/zastrixarundell/followers",
+           "following_url" =>
+             "https://api.github.com/users/zastrixarundell/following{/other_user}",
+           "gists_url" => "https://api.github.com/users/zastrixarundell/gists{/gist_id}",
+           "gravatar_id" => "",
+           "html_url" => "https://github.com/zastrixarundell",
+           "id" => 30_195_425,
+           "login" => "zastrixarundell",
+           "node_id" => "MDQ6VXNlcjMwMTk1NDI1",
+           "organizations_url" => "https://api.github.com/users/zastrixarundell/orgs",
+           "received_events_url" =>
+             "https://api.github.com/users/zastrixarundell/received_events",
+           "repos_url" => "https://api.github.com/users/zastrixarundell/repos",
+           "site_admin" => false,
+           "starred_url" => "https://api.github.com/users/zastrixarundell/starred{/owner}{/repo}",
+           "subscriptions_url" => "https://api.github.com/users/zastrixarundell/subscriptions",
+           "type" => "User",
+           "url" => "https://api.github.com/users/zastrixarundell"
+         },
+         "hooks_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/hooks",
+         "id" => 250_649_116,
+         "teams_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/teams",
+         "full_name" => "zastrixarundell/Catlixir",
+         "git_commits_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/git/commits{/sha}",
+         "default_branch" => "master",
+         "downloads_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/downloads",
+         "stargazers_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/stargazers",
+         "blobs_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/git/blobs{/sha}",
+         "collaborators_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/collaborators{/collaborator}",
+         "node_id" => "MDEwOlJlcG9zaXRvcnkyNTA2NDkxMTY=",
+         "watchers_count" => 2,
+         "notifications_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/notifications{?since,all,participating}",
+         "compare_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/compare/{base}...{head}",
+         "trees_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/git/trees{/sha}",
+         "clone_url" => "https://github.com/zastrixarundell/Catlixir.git",
+         "has_downloads" => true,
+         "subscription_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/subscription",
+         "url" => "https://api.github.com/repos/zastrixarundell/Catlixir",
+         "statuses_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/statuses/{sha}",
+         "milestones_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/milestones{/number}",
+         "svn_url" => "https://github.com/zastrixarundell/Catlixir",
+         "events_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/events",
+         "updated_at" => "2021-09-08T18:59:36Z",
+         "created_at" => "2020-03-27T21:14:43Z",
+         "html_url" => "https://github.com/zastrixarundell/Catlixir",
+         "archived" => false,
+         "allow_forking" => true,
+         "pulls_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/pulls{/number}",
+         "mirror_url" => nil,
+         "has_projects" => true,
+         "has_wiki" => true,
+         "topics" => [
+           "bot",
+           "cats",
+           "discord-bot",
+           "elixir",
+           "memes",
+           "nostrum",
+           "reddit-api",
+           "trivia"
+         ],
+         "language" => "Elixir",
+         "contributors_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/contributors",
+         "issue_events_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/issues/events{/number}",
+         "forks" => 0,
+         "merges_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/merges",
+         "deployments_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/deployments",
+         "visibility" => "public",
+         "assignees_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/assignees{/user}",
+         "git_url" => "git://github.com/zastrixarundell/Catlixir.git",
+         "forks_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/forks",
+         "tags_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/tags",
+         "open_issues" => 1,
+         "size" => 3143,
+         "pushed_at" => "2021-09-08T18:59:32Z",
+         "issues_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/issues{/number}",
+         "homepage" => nil,
+         "private" => false,
+         "disabled" => false,
+         "forks_count" => 0,
+         "git_tags_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/git/tags{/sha}",
+         "archive_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/{archive_format}{/ref}",
+         "comments_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/comments{/number}",
+         "has_pages" => false,
+         "issue_comment_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/issues/comments{/number}",
+         "branches_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/branches{/branch}",
+         "score" => 1.0,
+         "description" => "A Discord bot written in Elixir regarding... Cats!",
+         "subscribers_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/subscribers",
+         "stargazers_count" => 2,
+         "license" => %{
+           "key" => "wtfpl",
+           "name" => "Do What The F*ck You Want To Public License",
+           "node_id" => "MDc6TGljZW5zZTE4",
+           "spdx_id" => "WTFPL",
+           "url" => "https://api.github.com/licenses/wtfpl"
+         },
+         "commits_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/commits{/sha}",
+         "has_issues" => true,
+         "git_refs_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/git/refs{/sha}",
+         "ssh_url" => "git@github.com:zastrixarundell/Catlixir.git",
+         "releases_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/releases{/id}",
+         "is_template" => false,
+         "name" => "Catlixir",
+         "languages_url" => "https://api.github.com/repos/zastrixarundell/Catlixir/languages",
+         "open_issues_count" => 1,
+         "contents_url" =>
+           "https://api.github.com/repos/zastrixarundell/Catlixir/contents/{+path}",
+         "watchers" => 2
        }
      ]}
   end

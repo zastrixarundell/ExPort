@@ -9,18 +9,18 @@ defmodule ExPortWeb.GithubControllerTest do
   describe "show" do
     test "lists repos with the 'elixir' keyword", %{conn: conn} do
       conn = get(conn, Routes.github_path(conn, :show, language: "Elixir"))
-      assert html_response(conn, 200) =~ "ex_port"
+      assert html_response(conn, 200) =~ "Catlixir"
     end
 
     test "lists repos with the 'java' keyword", %{conn: conn} do
       conn = get(conn, Routes.github_path(conn, :show, language: "Java"))
-      assert html_response(conn, 200) =~ "toram"
+      assert html_response(conn, 200) =~ "Toram"
     end
 
     test "lists repos without a keyword", %{conn: conn} do
       conn = get(conn, Routes.github_path(conn, :show))
-      assert html_response(conn, 200) =~ "catlixir"
-      assert html_response(conn, 200) =~ "toram"
+      assert html_response(conn, 200) =~ "Catlixir"
+      assert html_response(conn, 200) =~ "Toram"
     end
   end
 end
