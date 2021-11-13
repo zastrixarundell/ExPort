@@ -238,13 +238,13 @@ main {
 }
 
 .connections>ul>li {
-    height: 50px;
+    height: 40px;
     flex-grow: 1;
 }
 
 .connection-button {
     min-width: 100px;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,7 +261,7 @@ main {
 }
 
 .connection-button:hover > .connection-logo {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 
 .discord-button {
