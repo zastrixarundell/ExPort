@@ -17,7 +17,7 @@ defmodule ExPortWeb.Router do
   scope "/", ExPortWeb do
     pipe_through :browser
 
-    # get "/", PageController, :index
+    get "/repos", GithubController, :show
 
     live "/", LandingLive
   end
