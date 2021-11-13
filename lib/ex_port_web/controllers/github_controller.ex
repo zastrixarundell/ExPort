@@ -3,15 +3,17 @@ defmodule ExPortWeb.GithubController do
 
   alias ExPort.Services.GithubService
 
-  def show(conn, params) do
-    language = params["language"]
+  def show(conn, %{"language" => language}) do
+    language = String.capitalize(language)
 
     case GithubService.repositories("zastrixarundell", language) do
       {:ok, repos} ->
         conn
         |> assign(:repos, repos)
-        |> assign(:present_language, present_language?(language))
-        |> assign(:language, (if present_language?(language), do: String.capitalize(language), else: language))
+        |> assign(:present_language, true)
+        |> assign(:language, language)
+        |> assign(:page_title, "Specific user repos")
+        |> assign(:page_suffix, " // #{language}")
         |> render("show.html")
 
       {:error, code} ->
@@ -21,9 +23,20 @@ defmodule ExPortWeb.GithubController do
     end
   end
 
-  defp present_language?(nil), do: false
+  def show(conn, _) do
+    case GithubService.repositories("zastrixarundell") do
+      {:ok, repos} ->
+        conn
+        |> assign(:repos, repos)
+        |> assign(:present_language, false)
+        |> assign(:language, nil)
+        |> assign(:page_title, "All user repos")
+        |> render("show.html")
 
-  defp present_language?(data) when is_bitstring(data), do: true
-
-  defp present_language?(_), do: false
+      {:error, code} ->
+        conn
+        |> put_flash(:error, "Failed to read repos with error code #{code}, try again later!")
+        |> redirect(to: "/")
+    end
+  end
 end
