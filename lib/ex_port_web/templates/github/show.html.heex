@@ -1,9 +1,18 @@
 <%# <div class="background"></div> %>
 
+<%= if @present_language do %>
+  <div class={"repo-background #{@language}-constant"}>
+    <img class="repo-background-half" src={Routes.static_path(@conn, "/images/background.jpg")} alt="" srcset="">
+    <span><%= @language %></span>
+  </div>
+<% else %>
+  <div class="repo-background"><img class="repo-background-big" src={Routes.static_path(@conn, "/images/background.jpg")} alt="" srcset=""></div>
+<% end %>
+
 <div class="vertical-flex repos" id="repo-holder">
   <%= for repo <- @repos do %>
     <a href={repo.url}>
-      <div class={["repo", repo.language]} id={repo.name}>
+      <div class={"repo #{repo.language}"} id={repo.name}>
         <img class="repo-source" src="/svgs/github.svg" alt="">
         <div class="repo-details-container">
           <div class="repo-details">
