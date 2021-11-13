@@ -36,6 +36,12 @@
       <li>I use Arch btw.</li>
     </ul>
   </section>
+  <div class="separator"></div>
+  <section class="kibaou-quote-holder">
+    <img src={Routes.static_path(@socket, "/images/kibaou.png")} alt="Kibaou saying something irritating." srcset="">
+    <div class="kibaou-quote">
+      <p>Mobile optimization? Pffft, I don't <i>do</i> mobile optimization.</p>
+    </div>
+  </section>
   <%= live_component ExPortWeb.Components.SpotifyLiveComponent, song: @song %>
-  <br><br><br><br><br><br><br><br><br><br>
 </div>

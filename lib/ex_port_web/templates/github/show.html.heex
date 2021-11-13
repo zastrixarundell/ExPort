@@ -2,11 +2,11 @@
 
 <%= if @present_language do %>
   <div class={"repo-background #{@language}-constant"}>
-    <img class="repo-background-half" src={Routes.static_path(@conn, "/images/background.jpg")} alt="" srcset="">
+    <img class="repo-background-half" src={Routes.static_path(@conn, "/images/background.jpg")} alt="Cats!" srcset="">
     <span><%= @language %></span>
   </div>
 <% else %>
-  <div class="repo-background"><img class="repo-background-big" src={Routes.static_path(@conn, "/images/background.jpg")} alt="" srcset=""></div>
+  <div class="repo-background"><img class="repo-background-big" src={Routes.static_path(@conn, "/images/background.jpg")} alt="Cats!" srcset=""></div>
 <% end %>
 
 <div class="vertical-flex repos" id="repo-holder">
