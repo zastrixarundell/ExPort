@@ -1,3 +1,24 @@
-<%= for repo <- @repos do %>
-  <%= repo.name %>
-<% end %>
+<%# <div class="background"></div> %>
+
+<div class="vertical-flex repos" id="repo-holder">
+  <%= for repo <- @repos do %>
+    <a href={repo.url}>
+      <div class="repo" id={repo.name}>
+        <img class="repo-source" src="/svgs/github.svg" alt="">
+        <div class="repo-details-container">
+          <div class="repo-details">
+          <div class="repo-details-top">
+            <span class="repo-name"><%= repo.name %></span>
+            <span class="repo-forks"><%= repo.forks %></span>
+            <span class="repo-stars"><%= repo.stars %></span>
+            <span class="repo-language"><%= repo.language %></span>
+          </div>
+          <div class="repo-separator"></div>
+          <div class="repo-details-bottom">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe, voluptas.</div>
+        </div>
+        </div>
+      </div>
+    </a>
+    
+  <% end %>
+</div>

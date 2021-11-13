@@ -5,6 +5,7 @@
 :root {
     --profile-border: #6d6d6d;
     --transparent-field: rgba(20, 20, 20, 0.6);
+    --repo-background: rgb(29, 29, 29);
     --spotify-highlight-color: #1DB954;
     --discord-highlight-color: #5865F2;
     --steam-highlight-color: #1b2838;
@@ -218,8 +219,7 @@ main {
 }
 
 .connection-button:hover > .connection-logo {
-    width: 35px;
-    height: 35px;
+    transform: scale(1.5);
 }
 
 .discord-button {
@@ -311,6 +311,11 @@ main {
 .song-thumbnail {
     width: 400px;
     height: 400px;
+    transition: 0.1s ease-in-out;
+}
+
+.song-thumbnail:hover {
+    transform: scale(1.01);
 }
 
 #spotify-information {
@@ -386,9 +391,71 @@ main {
     height: 5px;
 }
 
+/* Repos */
+
+.repos {
+    width: 100%;
+    margin-top: calc(30vh - 150px);
+    gap: 20px !important; 
+}
+
+.repo {
+    width: 100%;
+    height: 200px;
+    background-color: --transparent-field;
+    transition: 0.1s ease-out;
+    background-color: var(--repo-background);
+    display: flex;
+    border-radius: 5px;
+    padding: 30px 30px 30px 40px;
+
+}
+
+.repo:hover {
+    transform: scale(1.01);
+}
+
+.repo-source {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(329deg) brightness(102%) contrast(104%);
+    width: 125px;
+}
+
+.repo-details-container {
+    flex-grow: 1;
+}
+
+.repo-details {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.repo-details-top {
+    flex-direction: row;
+    display: flex;
+    flex-grow: 1;
+}
+
+.repo-details-bottom {
+    flex-grow: 1;
+}
+
+.repo-name {
+    margin-right: auto;
+}
+
+.repo-separator {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+}
+
 /* DOES NOT HAVE WITH SPOTIFY */
 
-.verical-flex {
+.vertical-flex {
     display: flex;
     justify-content: center;
     align-content: center;

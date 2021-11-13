@@ -19,8 +19,8 @@
         <li class="nav-element"><a href="/">home</a></li>
       </ul>
       <ul class="nav-links">
-        <li class="nav-element"><a href="/language.html?code=elixir">Elixir</a></li>
-        <li class="nav-element"><a href="/language.html?code=java">Java</a></li>
+        <li class="nav-element"><a href={Routes.github_path(@conn, :show, language: "elixir")}>Elixir</a></li>
+        <li class="nav-element"><a href={Routes.github_path(@conn, :show, language: "java")}>Java</a></li>
       </ul>
     </nav>
   </header>
