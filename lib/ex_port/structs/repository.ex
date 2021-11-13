@@ -9,16 +9,18 @@ defmodule ExPort.Struct.Repository do
     :language,
     :url,
     :archived,
+    :description,
     :forks,
     :stars,
     :updated_at,
-    :created_at
+    :created_at,
   ]
 
   @type t() :: %ExPort.Struct.Repository{
     name: String.t(),
     language: String.t(),
     url: String.t(),
+    description: String.t(),
     archived: boolean(),
     forks: non_neg_integer(),
     stars: non_neg_integer(),
@@ -48,6 +50,7 @@ defmodule ExPort.Struct.Repository do
       name: element["name"],
       language: element["language"],
       url: element["html_url"],
+      description: element["description"],
       forks: element["forks"],
       stars: element["stargazers_count"],
       updated_at: DateTime.from_iso8601(element["updated_at"]) |> elem(1),
