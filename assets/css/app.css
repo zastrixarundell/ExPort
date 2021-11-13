@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@100;200;300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
 @import url('media_queries.css');
+@import url('github_lang_colors.css');
 
 :root {
     --profile-border: #6d6d6d;
@@ -35,7 +36,42 @@ body {
     font-family: 'Urbanist', sans-serif;
 }
 
-main {
+.alert {
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 10px;
+    color: white;
+    z-index: 2000;
+    animation: alertFade 5s ease-in forwards;
+    text-align: center;
+}
+
+@keyframes alertFade {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.alert-danger {
+    background-color: rgb(209, 39, 76);
+}
+
+.page-content {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -403,7 +439,6 @@ main {
 .repo {
     width: 100%;
     height: 200px;
-    background-color: --transparent-field;
     transition: 0.1s ease-out;
     background-color: var(--repo-background);
     display: flex;
@@ -414,6 +449,18 @@ main {
 
 .repo:hover {
     transform: scale(1.01);
+}
+
+.repo:hover * {
+    color: rgba(20, 20, 20);
+}
+
+.repo:hover svg, .repo:hover img {
+    filter: brightness(0%);
+}
+
+.repo:hover .repo-separator {
+    background-color: rgba(20, 20, 20);
 }
 
 .repo-source {
@@ -462,6 +509,7 @@ main {
 .repo-icon {
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(329deg) brightness(60%) contrast(20%);
     width: 20px;
+    transition: 0.1s ease-in;
 }
 
 .repo-git-details {
@@ -473,6 +521,7 @@ main {
 .repo-social-information {
     display: flex;
     gap: 20px;
+    transition: 0.1s ease-in;
 }
 
 .repo-social-information > div {

@@ -1,5 +1,5 @@
 defmodule ExPortWeb.Components.SpotifyLiveComponent do
-  use Phoenix.LiveComponent
+  use ExPortWeb, :live_component
 
   @impl true
   def render(assigns) do

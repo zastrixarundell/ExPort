@@ -13,7 +13,7 @@ defmodule ExPortWeb.GithubController do
       {:error, code} ->
         conn
         |> put_flash(:error, "Failed to read repos with error code #{code}, try again later!")
-        |> render("show.html")
+        |> redirect(to: "/")
     end
   end
 end

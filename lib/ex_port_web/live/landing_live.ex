@@ -1,5 +1,5 @@
 defmodule ExPortWeb.LandingLive do
-  use Phoenix.LiveView
+  use ExPortWeb, :live_view
 
   alias ExPort.Services.SpotifyService
 
