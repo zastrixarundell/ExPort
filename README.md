@@ -22,4 +22,4 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Preview
 
-WIP: Add image to the application.
+![Preview image](https://raw.githubusercontent.com/zastrixarundell/ExPort/master/priv/static/images/preview.png)
